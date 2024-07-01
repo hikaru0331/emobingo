@@ -13,7 +13,7 @@ public class UserManager : MonoBehaviour
 
     public void CreateUser(User user)
     {
-        string url = "https://api.example.com/users";
+        string url = "http://localhost:7071/api/users";
         string json = JsonUtility.ToJson(user);
 
         StartCoroutine(apiClient.PostRequest(url, json, (response) => {
@@ -23,11 +23,14 @@ public class UserManager : MonoBehaviour
 
     public void GetUser(string userId)
     {
-        string url = $"https://api.example.com/users/{userId}";
+        string url = $"http://localhost:7071/api/users/{userId}";
 
         StartCoroutine(apiClient.GetRequest(url, (response) => {
             User user = JsonUtility.FromJson<User>(response);
-            Debug.Log("User data: " + user.name);
+            Debug.Log("User id: " + user.id);
+            Debug.Log("User name: " + user.name);
+            Debug.Log("User images: " + user.images);
+            Debug.Log("User room_id: " + user.room_id);
         }));
     }
 }

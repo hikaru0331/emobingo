@@ -12,7 +12,7 @@ public class RoomManager : MonoBehaviour
 
     public void CreateRoom(Room room)
     {
-        string url = "https://api.example.com/rooms";
+        string url = "http://localhost:7071/api/rooms";
         string json = JsonUtility.ToJson(room);
 
         StartCoroutine(apiClient.PostRequest(url, json, (response) => {
@@ -22,7 +22,7 @@ public class RoomManager : MonoBehaviour
 
     public void GetRoom(string roomId)
     {
-        string url = $"https://api.example.com/rooms/{roomId}";
+        string url = $"http://localhost:7071/api/rooms/{roomId}";
 
         StartCoroutine(apiClient.GetRequest(url, (response) => {
             Room room = JsonUtility.FromJson<Room>(response);

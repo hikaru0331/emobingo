@@ -33,4 +33,13 @@ public class UserManager : MonoBehaviour
             Debug.Log("User room_id: " + user.room_id);
         }));
     }
+
+    public void DeleteUser(string userId)
+    {
+        string url = $"http://localhost:7071/api/users/{userId}";
+
+        StartCoroutine(apiClient.DeleteRequest(url, (response) => {
+            Debug.Log("User deleted: " + response);
+        }));
+    }
 }

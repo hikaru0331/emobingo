@@ -45,4 +45,21 @@ public class APIClient : MonoBehaviour
             }
         }
     }
+
+    public IEnumerator DeleteRequest(string url, System.Action<string> callback)
+    {
+        using (UnityWebRequest webRequest = UnityWebRequest.Delete(url))
+        {
+            yield return webRequest.SendWebRequest();
+
+            if (webRequest.result == UnityWebRequest.Result.ConnectionError || webRequest.result == UnityWebRequest.Result.ProtocolError)
+            {
+                Debug.LogError("Error: " + webRequest.error);
+            }
+            else
+            {
+                Debug.Log("Deleted:");
+            }
+        }
+    }
 }

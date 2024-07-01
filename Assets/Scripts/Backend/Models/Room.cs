@@ -1,0 +1,17 @@
+// Assets/Scripts/Models/Room.cs
+
+[System.Serializable]
+public class Room
+{
+    public string id;
+    public User[] users;
+    public RoomImage[] images;
+}
+
+[System.Serializable]
+public class RoomImage
+{
+    public string image_id;
+    public string user_id;
+    public string url;
+}

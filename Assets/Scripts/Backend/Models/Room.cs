@@ -15,3 +15,9 @@ public class RoomImage
     public string user_id;
     public string url;
 }
+
+[System.Serializable]
+public class PostRoom
+{
+    public string room_id;
+}

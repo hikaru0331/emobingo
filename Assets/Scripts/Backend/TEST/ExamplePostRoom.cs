@@ -21,27 +21,9 @@ public class ExamplePostRoom : MonoBehaviour
         roomManager = GameObject.Find("RoomManager").GetComponent<RoomManager>();
 
         // ルームのデータを作成
-        Room newRoom = new Room
+        PostRoom newRoom = new PostRoom
         {
-            id = "1",
-            users = new User[]
-            {
-                new User
-                {
-                    id = "1",
-                    name = "ユーザー名",
-                    room_id = "123"
-                }
-            },
-            images = new RoomImage[]
-            {
-                new RoomImage
-                {
-                    image_id = "1",
-                    user_id = "1",
-                    url = "https://example.com/image.jpg"
-                }
-            }
+            room_id = "2222"
         };
 
         // ルーム情報の作成をリクエスト

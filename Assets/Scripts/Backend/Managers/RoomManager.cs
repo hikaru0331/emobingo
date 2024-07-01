@@ -10,7 +10,7 @@ public class RoomManager : MonoBehaviour
         apiClient = gameObject.AddComponent<APIClient>();
     }
 
-    public void CreateRoom(Room room)
+    public void CreateRoom(PostRoom room)
     {
         string url = "http://localhost:7071/api/rooms";
         string json = JsonUtility.ToJson(room);

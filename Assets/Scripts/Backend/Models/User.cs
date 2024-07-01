@@ -12,6 +12,6 @@ public class User
 [System.Serializable]
 public class Image
 {
-    public string url;
+    public string image_base64;
     public string emotion;
 }

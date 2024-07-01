@@ -8,6 +8,15 @@ public class ExamplePostRoom : MonoBehaviour
 
     void Start()
     {
+
+    }
+    void Update()
+    {
+
+    }
+    
+    public void OnClickEvent()
+    {
         // RoomManagerゲームオブジェクトを見つけてRoomManagerコンポーネントを取得
         roomManager = GameObject.Find("RoomManager").GetComponent<RoomManager>();
 

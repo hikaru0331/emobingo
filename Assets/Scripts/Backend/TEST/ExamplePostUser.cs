@@ -60,7 +60,7 @@ public class ExamplePostUser : MonoBehaviour
         // ユーザーのデータを作成
         User newUser = new User
         {
-            id = "222222",
+            id = "33333",
             name = "Unity太郎",
             room_id = "1111",
 

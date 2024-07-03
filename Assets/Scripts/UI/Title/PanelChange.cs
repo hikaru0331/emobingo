@@ -9,7 +9,7 @@ public class PanelChange : MonoBehaviour
     public GameObject roominPanel;
     public GameObject roommakePanel;
     public GameObject themePanel;
-    public GameObject camera1Panel;
+    public GameObject takephotoPanel1;
 
     void Start()
     {
@@ -17,7 +17,7 @@ public class PanelChange : MonoBehaviour
         roominPanel.SetActive(false);
         roommakePanel.SetActive(false);
         themePanel.SetActive(false);
-        camera1Panel.SetActive(false);
+        takephotoPanel1.SetActive(false);
     }
 
     public void MainView()
@@ -45,7 +45,7 @@ public class PanelChange : MonoBehaviour
     }
     public void Camera1View()
     {
-        camera1Panel.SetActive(true);
+        takephotoPanel1.SetActive(true);
         themePanel.SetActive(false);
     }
 }

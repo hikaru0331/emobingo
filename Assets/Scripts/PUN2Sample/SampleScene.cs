@@ -30,6 +30,12 @@ namespace PUN2Sample
             // ランダムな座標に自身のアバター（ネットワークオブジェクト）を生成する
             var position = new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f));
             PhotonNetwork.Instantiate("Avatar", position, Quaternion.identity);
+
+            // ルームを作成したプレイヤーは、現在のサーバー時刻をゲームの開始時刻に設定する
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.CurrentRoom.SetStartTime(PhotonNetwork.ServerTimestamp);
+            }
         }
     }
 }

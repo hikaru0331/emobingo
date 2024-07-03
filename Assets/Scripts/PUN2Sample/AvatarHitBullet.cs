@@ -20,6 +20,13 @@ namespace PUN2Sample
             var bullets = FindObjectsOfType<Bullet>();
             foreach (var bullet in bullets) {
                 if (bullet.Equals(id, ownerId)) {
+                    
+                    // 自身が発射した弾が当たった場合には、自身のスコアを増やす
+                    if (ownerId == PhotonNetwork.LocalPlayer.ActorNumber)
+                    {
+                        PhotonNetwork.LocalPlayer.AddScore(10);
+                    }
+                    
                     Destroy(bullet.gameObject);
                     break;
                 }

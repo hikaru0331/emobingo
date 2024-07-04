@@ -13,7 +13,7 @@ namespace PUN2Sample
             var nickName = photonView.Owner.NickName;
             var id = photonView.OwnerActorNr;
             // var rank = photonView.Owner.GetRank();
-            // nameLabel.text = $"{nickName}({id})[{rank}]";
+            nameLabel.text = $"{nickName}({id})";
         }
     }
 }

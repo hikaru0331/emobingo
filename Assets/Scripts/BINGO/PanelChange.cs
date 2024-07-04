@@ -14,13 +14,13 @@ public class PanelCange : MonoBehaviour
         RandomPanel.SetActive(false);
     }
  
-    public void MainView()
+    public void BingoPanelView()
     {
         BingoPanel.SetActive(true);
         RandomPanel.SetActive(false);
     }
  
-    public void SubView()
+    public void RandomPanelView()
     {
         BingoPanel.SetActive(false);
         RandomPanel.SetActive(true);

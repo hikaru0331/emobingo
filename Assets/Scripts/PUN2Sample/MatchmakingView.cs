@@ -13,7 +13,8 @@ public class MatchmakingView : MonoBehaviourPunCallbacks
 
     private CanvasGroup canvasGroup;
 
-    private void Start() {
+    private void Start()
+    {
         canvasGroup = GetComponent<CanvasGroup>();
         // マスターサーバーに接続するまでは、入力できないようにする
         canvasGroup.interactable = false;
@@ -25,17 +26,20 @@ public class MatchmakingView : MonoBehaviourPunCallbacks
         joinRoomButton.onClick.AddListener(OnJoinRoomButtonClick);
     }
 
-    public override void OnConnectedToMaster() {
+    public override void OnConnectedToMaster()
+    {
         // マスターサーバーに接続したら、入力できるようにする
         canvasGroup.interactable = true;
     }
 
-    private void OnPasswordInputFieldValueChanged(string value) {
+    private void OnPasswordInputFieldValueChanged(string value)
+    {
         // パスワードを6桁入力した時のみ、ルーム参加ボタンを押せるようにする
         joinRoomButton.interactable = (value.Length == 6);
     }
 
-    private void OnJoinRoomButtonClick() {
+    private void OnJoinRoomButtonClick()
+    {
         // ルーム参加処理中は、入力できないようにする
         canvasGroup.interactable = false;
 
@@ -48,12 +52,14 @@ public class MatchmakingView : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinOrCreateRoom(passwordInputField.text, roomOptions, TypedLobby.Default);
     }
 
-    public override void OnJoinedRoom() {
+    public override void OnJoinedRoom()
+    {
         // ルームへの参加が成功したら、UIを非表示にする
         gameObject.SetActive(false);
     }
 
-    public override void OnJoinRoomFailed(short returnCode, string message) {
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
         // ルームへの参加が失敗したら、パスワードを再び入力できるようにする
         passwordInputField.text = string.Empty;
         canvasGroup.interactable = true;

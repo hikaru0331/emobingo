@@ -11,8 +11,8 @@ namespace PUN2Sample
             // プレイヤー名とプレイヤーIDとプレイヤーのランクを表示する
             var nickName = photonView.Owner.NickName;
             var id = photonView.OwnerActorNr;
-            var rank = photonView.Owner.GetRank();
-            nameLabel.text = $"{nickName}({id})[{rank}]";
+            // var rank = photonView.Owner.GetRank();
+            // nameLabel.text = $"{nickName}({id})[{rank}]";
         }
     }
 }

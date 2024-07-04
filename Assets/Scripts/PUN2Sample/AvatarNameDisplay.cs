@@ -8,8 +8,11 @@ namespace PUN2Sample
     {
         private void Start() {
             var nameLabel = GetComponent<TextMeshPro>();
-            // プレイヤー名とプレイヤーIDを表示する
-            nameLabel.text = $"{photonView.Owner.NickName}({photonView.OwnerActorNr})";
+            // プレイヤー名とプレイヤーIDとプレイヤーのランクを表示する
+            var nickName = photonView.Owner.NickName;
+            var id = photonView.OwnerActorNr;
+            var rank = photonView.Owner.GetRank();
+            nameLabel.text = $"{nickName}({id})[{rank}]";
         }
     }
 }

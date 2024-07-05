@@ -83,7 +83,7 @@ public class BingoManager : MonoBehaviour
 
         // 数字から何番目のSquareのIndexかを探す
         int squareIndex = bingoSquareList.FindIndex(x => x.number == number);
-
+        //Debug.Log($"Found square index: {squareIndex} for number: {number}");
         // 要素内に存在しない場合はエラー
         if (squareIndex == -1)
         {
@@ -94,6 +94,85 @@ public class BingoManager : MonoBehaviour
         cardAreaView.SetCardOpen(squareIndex);
         // 変数の更新
         bingoSquareList[squareIndex].isOpen = true;
+        IsBingo(squareIndex);
+    }
+    
+    public bool IsBingo(int squareIndex)
+    {
+        // まずはsquareIndexが有効かを確認する
+        if (squareIndex < 0 || squareIndex >= SQUARE_COUNT)
+        {
+            return false;
+        }
+        // そのsquareが開いているかを確認する
+        if (!bingoSquareList[squareIndex].isOpen)
+        {
+            return false;
+        }
+        // そのsquareがBingoになっているかを確認する
+        int row = squareIndex / 3;
+        int col = squareIndex % 3;
+        // 横の判定
+        bool isBingo = true;
+        for (int i = 0; i < 3; i++)
+        {
+            if (!bingoSquareList[row * 3 + i].isOpen)
+            {
+                isBingo = false;
+                break;
+            }
+        }
+        if (isBingo)
+        {
+            Debug.Log("横の判定");
+            return true;
+        }
+         // 縦の判定
+        isBingo = true;
+        for (int i = 0; i < 3; i++)
+        {
+            if (!bingoSquareList[col + i * 3].isOpen)
+            {
+                isBingo = false;
+                break;
+            }
+        }
+        if (isBingo)
+        {
+            Debug.Log("縦の判定");
+            return true;
+        }
+        // 右下がり：左上から右下の斜め判定
+        isBingo = true;
+        for (int i = 0; i < 3; i++)
+        {
+            if (!bingoSquareList[i * 4].isOpen)
+            {
+                isBingo = false;
+                break;
+            }
+        }
+        if (isBingo)
+        {
+            Debug.Log("右下がり：左上から右下の斜め判定");
+            return true;
+        }
 
+        // 右上がり：右上から左下の斜め判定
+        isBingo = true;
+        for (int i = 0; i < 3; i++)
+        {
+            if (!bingoSquareList[(i + 1) * 2].isOpen)
+            {
+                isBingo = false;
+                break;
+            }
+        }
+        if (isBingo)
+        {
+            Debug.Log("右上がり：右上から左下の斜め判定");
+            return true;
+        }
+        return false;
     }
 }

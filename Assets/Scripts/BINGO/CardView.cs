@@ -12,6 +12,11 @@ public class CardView : MonoBehaviour
         cardNumberText.text = cardNumber.ToString();
     }
 
+    public void ChangeImage(Texture2D texture)
+    {
+        cardImage.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
+    }
+
     public void SetColor(Color imageColor , Color textColor)
     {
         cardImage.color = imageColor;

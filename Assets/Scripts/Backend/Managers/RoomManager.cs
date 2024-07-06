@@ -26,10 +26,6 @@ public class RoomManager : MonoBehaviour
 
         StartCoroutine(apiClient.GetRequest(url, (response) => {
             Room room = JsonUtility.FromJson<Room>(response);
-            Debug.Log("Room id: " + room.id);
-            Debug.Log("Room users: " + room.users);
-            Debug.Log("Room images: " + room.images);
-
         }));
     }
 }

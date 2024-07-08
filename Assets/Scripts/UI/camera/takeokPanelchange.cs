@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PhotoPanel : MonoBehaviour
+public class takeokPanelchange : MonoBehaviour
 {
     public GameObject takePanel;
     public GameObject okPanel;

@@ -1615,7 +1615,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1692579943}
         m_TargetAssemblyTypeName: PanelChange, Assembly-CSharp
-        m_MethodName: Camera2View
+        m_MethodName: RoomView
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2529,7 +2529,7 @@ GameObject:
   - component: {fileID: 431275977}
   - component: {fileID: 431275976}
   m_Layer: 5
-  m_Name: okPanel1
+  m_Name: okPanel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4443,8 +4443,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1023482850}
-        m_TargetAssemblyTypeName: PhotoPanel, Assembly-CSharp
-        m_MethodName: okView
+        m_TargetAssemblyTypeName: takeokPanelchange, Assembly-CSharp
+        m_MethodName: ok1View
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5112,8 +5112,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1023482850}
-        m_TargetAssemblyTypeName: PhotoPanel, Assembly-CSharp
-        m_MethodName: okView
+        m_TargetAssemblyTypeName: takeokPanelchange, Assembly-CSharp
+        m_MethodName: ok2View
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5378,8 +5378,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1023482850}
-        m_TargetAssemblyTypeName: PhotoPanel, Assembly-CSharp
-        m_MethodName: takeView
+        m_TargetAssemblyTypeName: takeokPanelchange, Assembly-CSharp
+        m_MethodName: take1View
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5572,7 +5572,7 @@ GameObject:
   - component: {fileID: 1023482851}
   - component: {fileID: 1023482850}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: script2Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5590,8 +5590,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3eb62ee40faa764a85cf552cc499dce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  takePanel: {fileID: 1891188659}
-  okPanel: {fileID: 672021248}
+  takePanel1: {fileID: 1891188659}
+  okPanel1: {fileID: 672021248}
+  takePanel2: {fileID: 1051756629}
+  okPanel2: {fileID: 431275974}
+  takePanel3: {fileID: 1273890320}
+  okPanel3: {fileID: 1165913480}
 --- !u!4 &1023482851
 Transform:
   m_ObjectHideFlags: 0
@@ -5828,7 +5832,7 @@ GameObject:
   - component: {fileID: 1051756632}
   - component: {fileID: 1051756631}
   m_Layer: 5
-  m_Name: takePanel1
+  m_Name: takePanel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6038,7 +6042,7 @@ GameObject:
   - component: {fileID: 1165913483}
   - component: {fileID: 1165913482}
   m_Layer: 5
-  m_Name: okPanel1
+  m_Name: okPanel3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6188,8 +6192,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1023482850}
-        m_TargetAssemblyTypeName: PhotoPanel, Assembly-CSharp
-        m_MethodName: takeView
+        m_TargetAssemblyTypeName: takeokPanelchange, Assembly-CSharp
+        m_MethodName: take2View
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6651,7 +6655,7 @@ GameObject:
   - component: {fileID: 1273890323}
   - component: {fileID: 1273890322}
   m_Layer: 5
-  m_Name: takePanel1
+  m_Name: takePanel3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7061,7 +7065,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "1 \u6E80\u70B9\u306E\u7B11\u9854"
+  m_text: "3 \u81EA\u5206\u306A\u308A\u306E\u5909\u9854"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: da4d46c14e3b2474f87b876c1165c73f, type: 2}
   m_sharedMaterial: {fileID: -6190145807725455195, guid: da4d46c14e3b2474f87b876c1165c73f, type: 2}
@@ -7445,8 +7449,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1023482850}
-        m_TargetAssemblyTypeName: PhotoPanel, Assembly-CSharp
-        m_MethodName: takeView
+        m_TargetAssemblyTypeName: takeokPanelchange, Assembly-CSharp
+        m_MethodName: take3View
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8222,8 +8226,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1023482850}
-        m_TargetAssemblyTypeName: PhotoPanel, Assembly-CSharp
-        m_MethodName: okView
+        m_TargetAssemblyTypeName: takeokPanelchange, Assembly-CSharp
+        m_MethodName: ok3View
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8334,7 +8338,7 @@ GameObject:
   - component: {fileID: 1692579944}
   - component: {fileID: 1692579943}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: script1Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8359,7 +8363,7 @@ MonoBehaviour:
   takephotoPanel1: {fileID: 806288556}
   takephotoPanel2: {fileID: 736558084}
   takephotoPanel3: {fileID: 1727249142}
-  roomPanel: {fileID: 0}
+  roomPanel: {fileID: 1032996153}
 --- !u!4 &1692579944
 Transform:
   m_ObjectHideFlags: 0
@@ -8896,13 +8900,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1692579943}
+        m_TargetAssemblyTypeName: PanelChange, Assembly-CSharp
+        m_MethodName: Camera3View
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

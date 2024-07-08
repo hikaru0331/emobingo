@@ -5,24 +5,54 @@ using UnityEngine.UI;
 
 public class takeokPanelchange : MonoBehaviour
 {
-    public GameObject takePanel;
-    public GameObject okPanel;
+    public GameObject takePanel1;
+    public GameObject okPanel1;
+    public GameObject takePanel2;
+    public GameObject okPanel2;
+    public GameObject takePanel3;
+    public GameObject okPanel3;
 
     void Start()
     {
-        takePanel.SetActive(true);
-        okPanel.SetActive(false);
+        takePanel1.SetActive(true);
+        okPanel1.SetActive(false);
+        takePanel2.SetActive(true);
+        okPanel2.SetActive(false);
+        takePanel3.SetActive(true);
+        okPanel3.SetActive(false);
     }
 
-    public void takeView()
+    public void take1View()
     {
-        takePanel.SetActive(true);
-        okPanel.SetActive(false);
+        takePanel1.SetActive(true);
+        okPanel1.SetActive(false);
     }
 
-    public void okView()
+    public void ok1View()
     {
-        takePanel.SetActive(false);
-        okPanel.SetActive(true);
+        takePanel1.SetActive(false);
+        okPanel1.SetActive(true);
+    }
+    public void take2View()
+    {
+        takePanel2.SetActive(true);
+        okPanel2.SetActive(false);
+    }
+
+    public void ok2View()
+    {
+        takePanel2.SetActive(false);
+        okPanel2.SetActive(true);
+    }
+    public void take3View()
+    {
+        takePanel3.SetActive(true);
+        okPanel3.SetActive(false);
+    }
+
+    public void ok3View()
+    {
+        takePanel3.SetActive(false);
+        okPanel3.SetActive(true);
     }
 }

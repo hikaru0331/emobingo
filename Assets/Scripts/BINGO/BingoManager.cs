@@ -23,7 +23,8 @@ public class BingoManager : MonoBehaviour
         //最大値最小値決める
         // currentRoom の images 配列から image_id の最大値を取得する
         int maxImageId = 0;
-        
+        //コメントアウトの箇所はAPIから取得するときに外す
+        /*
         foreach (var image in currentRoom.images)
         {
             if (int.Parse(image.image_id) > maxImageId)
@@ -33,6 +34,7 @@ public class BingoManager : MonoBehaviour
         }
 
         Debug.Log("最大の image_id: " + maxImageId);
+        */
         maxImageId = Mathf.Max(maxImageId, SQUARE_COUNT);
         List<BingoSquare> tempList = new List<BingoSquare>();
         for (int i = 1; i <= maxImageId; i++)
@@ -53,20 +55,23 @@ public class BingoManager : MonoBehaviour
 
     private APIClient apiClient;
     // Room データの保存先
-    public Room currentRoom;
+    public RoomDTO currentRoom;
 
     private void GetRoomJson(string roomId)
     {
+        /*
         apiClient = gameObject.AddComponent<APIClient>();
 
         string url = $"http://localhost:7071/api/rooms/{roomId}";
 
         StartCoroutine(apiClient.GetRequest(url, (response) => {
-            Room room = JsonUtility.FromJson<Room>(response);
+            RoomDTO room = JsonUtility.FromJson<RoomDTO>(response);
             currentRoom = room;
             //結構むりやりjsonの受け取り待ってる
             NewGame();
         }));
+        */
+        NewGame();
     }
     
     private void Start()

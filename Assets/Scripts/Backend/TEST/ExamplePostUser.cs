@@ -64,15 +64,15 @@ public class ExamplePostUser : MonoBehaviour
             name = "Unity太郎",
             room_id = "1111",
 
-            images = new Image[]
+            images = new ImageDTO[]
 
             {
-                new Image
+                new ImageDTO
                 {
                     image_base64 = imageBase64_smile,
                     emotion = "egao"
                 },
-                new Image
+                new ImageDTO
                 {
                     image_base64 = imageBase64_cry,
                     emotion = "cry"

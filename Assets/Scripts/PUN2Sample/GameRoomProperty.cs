@@ -10,7 +10,7 @@ namespace PUN2Sample
         private static readonly Hashtable propsToSet = new Hashtable();
 
         // ゲームの開始時刻が設定されていれば取得する
-        public static bool TryGetStartTime(this Room room, out int timestamp) 
+        public static bool TryGetStartTime(this Photon.Realtime.Room room, out int timestamp) 
         {
             if (room.CustomProperties[KeyStartTime] is int value)
             {
@@ -25,7 +25,7 @@ namespace PUN2Sample
         }
 
         // ゲームの開始時刻を設定する
-        public static void SetStartTime(this Room room, int timestamp) 
+        public static void SetStartTime(this Photon.Realtime.Room room, int timestamp) 
         {
             propsToSet[KeyStartTime] = timestamp;
             room.SetCustomProperties(propsToSet);

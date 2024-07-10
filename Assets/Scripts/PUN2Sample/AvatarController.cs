@@ -9,7 +9,7 @@ namespace PUN2Sample
         private const float MaxStamina = 6f;
 
         [SerializeField]
-        private Image staminaBar = default;
+        private UnityEngine.UI.Image staminaBar = default;
 
         private float currentStamina = MaxStamina;
 

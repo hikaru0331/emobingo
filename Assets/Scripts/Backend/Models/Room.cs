@@ -1,7 +1,7 @@
 // Assets/Scripts/Models/Room.cs
 
 [System.Serializable]
-public class Room
+public class RoomDTO
 {
     public string id;
     public User[] users;

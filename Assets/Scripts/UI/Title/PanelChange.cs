@@ -31,6 +31,11 @@ public class PanelChange : MonoBehaviour
         mainPanel.SetActive(true);
         roominPanel.SetActive(false);
         roommakePanel.SetActive(false);
+        themePanel.SetActive(false);
+        takephotoPanel1.SetActive(false);
+        takephotoPanel2.SetActive(false);
+        takephotoPanel3.SetActive(false);
+        roomPanel.SetActive(false);
     }
 
     public void SubView()

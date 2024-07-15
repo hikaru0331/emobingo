@@ -11,9 +11,10 @@ public class AreaInfoView : MonoBehaviour
     //ここでこの数字のImageも入れるコード追加したい
     private void Start()
     {
-        BingoManager.OnBingoNumber += (number) =>
+        BingoManager.OnBingoNumber += (number,sprite) =>
         {
             currentNumberText.text = number.ToString();
+            currentImage.sprite = sprite;
         };
     }
 }

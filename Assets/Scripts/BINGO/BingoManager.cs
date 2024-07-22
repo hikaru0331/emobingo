@@ -17,6 +17,7 @@ public class BingoManager : MonoBehaviour
     private List<int> bingoNumberBuffer = new List<int>();
     // staticなイベントを作成
     public static System.Action<string> OnChangeSubInfoText;
+    private bool bingoLog = true;//ビンゴ表示用
 
     private void GenerateBingoCard()
     {
@@ -136,12 +137,13 @@ public class BingoManager : MonoBehaviour
         // 変数の更新
         bingoSquareList[squareIndex].isOpen = true;
         IsBingo(squareIndex);
-        if (IsBingo(squareIndex))
+        if (IsBingo(squareIndex) && bingoLog)
         {
             // ここでSubInfo向けに変更したい文字を入力Bingo!!にしたりして見てください
             // ちなみにTextMeshProの関係で、日本語は使えないぞ！
             OnChangeSubInfoText?.Invoke("BINGO");
             Debug.Log("Bingo!(Nextメソッドのログを修正)");
+            bingoLog = false;
         }
     }
     

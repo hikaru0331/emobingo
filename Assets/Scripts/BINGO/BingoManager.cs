@@ -15,6 +15,8 @@ public class BingoManager : MonoBehaviour
 
     // メンバー変数を追加
     private List<int> bingoNumberBuffer = new List<int>();
+    // staticなイベントを作成
+    public static System.Action<string> OnChangeSubInfoText;
 
     private void GenerateBingoCard()
     {
@@ -89,6 +91,7 @@ public class BingoManager : MonoBehaviour
             cardAreaView.SetCardImage(i,bingoSquareList[i].number,currentRoom);
             cardAreaView.SetCardClose(i);
         }
+        OnChangeSubInfoText?.Invoke("");
     }
     
     private int GetRandomNumber()
@@ -108,6 +111,7 @@ public class BingoManager : MonoBehaviour
 
     public void Next()
     {
+        OnChangeSubInfoText?.Invoke("");
         // まだ空いていないSquareを探す
         int number = GetRandomNumber();
         if (number == -1)
@@ -132,6 +136,13 @@ public class BingoManager : MonoBehaviour
         // 変数の更新
         bingoSquareList[squareIndex].isOpen = true;
         IsBingo(squareIndex);
+        if (IsBingo(squareIndex))
+        {
+            // ここでSubInfo向けに変更したい文字を入力Bingo!!にしたりして見てください
+            // ちなみにTextMeshProの関係で、日本語は使えないぞ！
+            OnChangeSubInfoText?.Invoke("BINGO");
+            Debug.Log("Bingo!(Nextメソッドのログを修正)");
+        }
     }
     
     public bool IsBingo(int squareIndex)

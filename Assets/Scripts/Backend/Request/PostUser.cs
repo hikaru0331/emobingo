@@ -11,21 +11,12 @@ public class PostUser : MonoBehaviour
     public RawImage Check1Image; // RawImageコンポーネントの参照
     public RawImage Check2Image; // RawImageコンポーネントの参照
     public RawImage Check3Image; // RawImageコンポーネントの参照
-
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
-
+    
     public void OnClickEvent()
     {
         // UserManagerゲームオブジェクトを見つけてUserManagerコンポーネントを取得
-        userManager = GameObject.Find("UserManager").GetComponent<UserManager>();
+        userManager = new UserManager();
+
         // 黒魔術　意味わからん　https://qiita.com/Katumadeyaruhiko/items/c2b9b4ccdfe51df4ad4a
         Texture2D createReadabeTexture2D(Texture2D texture2d)
             {

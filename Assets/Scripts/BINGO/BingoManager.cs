@@ -93,6 +93,7 @@ public class BingoManager : MonoBehaviour
             cardAreaView.SetCardClose(i);
         }
         OnChangeSubInfoText?.Invoke("");
+        bingoLog = true;
     }
     
     private int GetRandomNumber()

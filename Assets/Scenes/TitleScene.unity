@@ -874,6 +874,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2028503660}
+        m_TargetAssemblyTypeName: WebCam, Assembly-CSharp
+        m_MethodName: Cam1Start
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &114509496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1972,6 +1984,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1023482850}
         m_TargetAssemblyTypeName: takeokPanelchange, Assembly-CSharp
         m_MethodName: take3View
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 954000501}
+        m_TargetAssemblyTypeName: PostUser, Assembly-CSharp
+        m_MethodName: OnClickEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4152,6 +4176,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 641901451}
   m_CullTransparentMesh: 1
+--- !u!1 &642835375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 642835377}
+  - component: {fileID: 642835376}
+  m_Layer: 0
+  m_Name: UserManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &642835376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642835375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a025728b699f3027b40d7e687646d88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &642835377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642835375}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.7765537, y: -0.11957139, z: 0.037408873}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &672021248
 GameObject:
   m_ObjectHideFlags: 0
@@ -5258,9 +5326,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: WebCamController, Assembly-CSharp
-        m_MethodName: TakeShot
+      - m_Target: {fileID: 2028503660}
+        m_TargetAssemblyTypeName: WebCam, Assembly-CSharp
+        m_MethodName: TakeShot1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5978,6 +6046,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 947364434}
   m_CullTransparentMesh: 1
+--- !u!1 &954000500
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 954000502}
+  - component: {fileID: 954000501}
+  m_Layer: 0
+  m_Name: Backend_Request
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &954000501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954000500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aefa8f58aed4a0643a8ed535a8d9bceb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Check1Image: {fileID: 1034037551}
+  Check2Image: {fileID: 1739893954}
+  Check3Image: {fileID: 999637440}
+--- !u!4 &954000502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954000500}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.8072845, y: 2.0253315, z: 332.23148}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &983789353
 GameObject:
   m_ObjectHideFlags: 0
@@ -6063,6 +6178,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1023482850}
         m_TargetAssemblyTypeName: takeokPanelchange, Assembly-CSharp
         m_MethodName: ok2View
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2028503660}
+        m_TargetAssemblyTypeName: WebCam, Assembly-CSharp
+        m_MethodName: TakeShot2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6413,6 +6540,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1023482850}
         m_TargetAssemblyTypeName: takeokPanelchange, Assembly-CSharp
         m_MethodName: take1View
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2028503660}
+        m_TargetAssemblyTypeName: WebCam, Assembly-CSharp
+        m_MethodName: Cam1Start
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7454,6 +7593,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1023482850}
         m_TargetAssemblyTypeName: takeokPanelchange, Assembly-CSharp
         m_MethodName: take2View
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2028503660}
+        m_TargetAssemblyTypeName: WebCam, Assembly-CSharp
+        m_MethodName: Cam2Start
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8976,6 +9127,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2028503660}
+        m_TargetAssemblyTypeName: WebCam, Assembly-CSharp
+        m_MethodName: Cam3Start
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1424476339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9887,6 +10050,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2028503660}
+        m_TargetAssemblyTypeName: WebCam, Assembly-CSharp
+        m_MethodName: TakeShot3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1625576377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10647,6 +10822,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2028503660}
+        m_TargetAssemblyTypeName: WebCam, Assembly-CSharp
+        m_MethodName: Cam2Start
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1746033237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10783,6 +10970,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1023482850}
         m_TargetAssemblyTypeName: takeokPanelchange, Assembly-CSharp
         m_MethodName: take2View
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2028503660}
+        m_TargetAssemblyTypeName: WebCam, Assembly-CSharp
+        m_MethodName: Cam3Start
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12194,6 +12393,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002858842}
   m_CullTransparentMesh: 1
+--- !u!1 &2028503658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2028503659}
+  - component: {fileID: 2028503660}
+  m_Layer: 0
+  m_Name: WebCam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2028503659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028503658}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.8072845, y: 2.0253315, z: 332.23148}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2028503660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028503658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb1adabb9a2b064f84d2d0b76fac6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cam1Image: {fileID: 847500655}
+  Check1Image: {fileID: 1034037551}
+  Cam2Image: {fileID: 823174281}
+  Check2Image: {fileID: 1739893954}
+  Cam3Image: {fileID: 1965921739}
+  Check3Image: {fileID: 999637440}
 --- !u!1 &2035901990
 GameObject:
   m_ObjectHideFlags: 0
@@ -12902,3 +13151,6 @@ SceneRoots:
   - {fileID: 1023482851}
   - {fileID: 359911096}
   - {fileID: 471585231}
+  - {fileID: 2028503659}
+  - {fileID: 954000502}
+  - {fileID: 642835377}

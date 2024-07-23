@@ -31,7 +31,7 @@ public class WebCam : MonoBehaviour
     }
 
     public void Cam2Start(){
-                // デバイスのカメラ一覧を取得
+        // デバイスのカメラ一覧を取得
         WebCamDevice[] devices = WebCamTexture.devices;
         if (devices.Length > 0)
         {
@@ -47,7 +47,7 @@ public class WebCam : MonoBehaviour
     }
 
     public void Cam3Start(){
-                // デバイスのカメラ一覧を取得
+        // デバイスのカメラ一覧を取得
         WebCamDevice[] devices = WebCamTexture.devices;
         if (devices.Length > 0)
         {
@@ -110,7 +110,4 @@ public class WebCam : MonoBehaviour
             webCamTexture.Stop();
         }
     }
-
-    
-
 }

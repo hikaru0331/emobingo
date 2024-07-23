@@ -43,7 +43,7 @@ public class PanelChange : MonoBehaviour
         mainPanel.SetActive(false);
         roominPanel.SetActive(true);
     }
-    public void roommakeView()
+    public void RoomMakeView()
     {
         mainPanel.SetActive(false);
         roommakePanel.SetActive(true);

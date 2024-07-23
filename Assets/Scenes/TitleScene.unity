@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 26924982}
   - component: {fileID: 26924981}
   m_Layer: 5
-  m_Name: InputField (TMP) (1)
+  m_Name: NameInputField (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -525,7 +525,7 @@ GameObject:
   - component: {fileID: 70069149}
   - component: {fileID: 70069148}
   m_Layer: 5
-  m_Name: Button
+  m_Name: RoomJoinButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -792,7 +792,7 @@ GameObject:
   - component: {fileID: 114509496}
   - component: {fileID: 114509495}
   m_Layer: 5
-  m_Name: Button
+  m_Name: NextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -924,7 +924,7 @@ GameObject:
   - component: {fileID: 117601691}
   - component: {fileID: 117601690}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: ExitPanelParant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1001,7 +1001,7 @@ GameObject:
   - component: {fileID: 124600004}
   - component: {fileID: 124600003}
   m_Layer: 5
-  m_Name: InputField (TMP)
+  m_Name: NumInputField (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1444,7 +1444,7 @@ GameObject:
   - component: {fileID: 194782879}
   - component: {fileID: 194782878}
   m_Layer: 5
-  m_Name: InputField (TMP)
+  m_Name: NumInputField (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2164,7 +2164,7 @@ GameObject:
   - component: {fileID: 359911096}
   - component: {fileID: 359911095}
   m_Layer: 0
-  m_Name: script3Object
+  m_Name: RoomExitController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2747,7 +2747,7 @@ GameObject:
   - component: {fileID: 420063862}
   - component: {fileID: 420063861}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3008,7 +3008,7 @@ GameObject:
   - component: {fileID: 471585231}
   - component: {fileID: 471585230}
   m_Layer: 0
-  m_Name: Script4Object
+  m_Name: GameStarter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3188,7 +3188,7 @@ GameObject:
   - component: {fileID: 535671249}
   - component: {fileID: 535671248}
   m_Layer: 5
-  m_Name: RoommakePanel
+  m_Name: RoomCreatePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3249,9 +3249,9 @@ RectTransform:
   - {fileID: 1544316149}
   - {fileID: 1793787243}
   - {fileID: 124600002}
+  - {fileID: 26924980}
   - {fileID: 1741698461}
   - {fileID: 2002858843}
-  - {fileID: 26924980}
   - {fileID: 420063860}
   m_Father: {fileID: 2113665156}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3273,7 +3273,7 @@ GameObject:
   - component: {fileID: 542379341}
   - component: {fileID: 542379340}
   m_Layer: 5
-  m_Name: InputField (TMP) (1)
+  m_Name: NameInputField (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3447,7 +3447,7 @@ GameObject:
   - component: {fileID: 582765019}
   - component: {fileID: 582765018}
   m_Layer: 5
-  m_Name: RoominPanel
+  m_Name: RoomJoinPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4456,7 +4456,7 @@ GameObject:
   - component: {fileID: 759281021}
   - component: {fileID: 759281020}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4587,7 +4587,7 @@ GameObject:
   - component: {fileID: 783363428}
   - component: {fileID: 783363427}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: RoomExitPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5321,7 +5321,7 @@ GameObject:
   - component: {fileID: 897384706}
   - component: {fileID: 897384705}
   m_Layer: 5
-  m_Name: Button
+  m_Name: TitleLogo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6195,7 +6195,7 @@ GameObject:
   - component: {fileID: 1004640954}
   - component: {fileID: 1004640953}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ConfirmButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7157,7 +7157,7 @@ GameObject:
   - component: {fileID: 1081067154}
   - component: {fileID: 1081067153}
   m_Layer: 5
-  m_Name: Button
+  m_Name: YesButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8127,7 +8127,7 @@ GameObject:
   - component: {fileID: 1295303358}
   - component: {fileID: 1295303357}
   m_Layer: 5
-  m_Name: Button
+  m_Name: GameStartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9988,7 +9988,7 @@ GameObject:
   - component: {fileID: 1692579944}
   - component: {fileID: 1692579943}
   m_Layer: 0
-  m_Name: script1Object
+  m_Name: PanalChanger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10378,7 +10378,7 @@ GameObject:
   - component: {fileID: 1741698463}
   - component: {fileID: 1741698462}
   m_Layer: 5
-  m_Name: InputField (TMP) (2)
+  m_Name: PrizesInputField (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10843,7 +10843,7 @@ GameObject:
   - component: {fileID: 1764213530}
   - component: {fileID: 1764213529}
   m_Layer: 5
-  m_Name: Button
+  m_Name: NoButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10976,7 +10976,7 @@ GameObject:
   - component: {fileID: 1793787245}
   - component: {fileID: 1793787244}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ConfirmButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11868,7 +11868,7 @@ GameObject:
   - component: {fileID: 1924623322}
   - component: {fileID: 1924623321}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: RoomExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12341,7 +12341,7 @@ GameObject:
   - component: {fileID: 2038015361}
   - component: {fileID: 2038015360}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: RoomCreateButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12413,7 +12413,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1692579943}
         m_TargetAssemblyTypeName: PanelChange, Assembly-CSharp
-        m_MethodName: roommakeView
+        m_MethodName: RoomMakeView
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

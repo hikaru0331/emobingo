@@ -1,5 +1,7 @@
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+using System.Collections;
+using System.Collections.Generic;
 
 public class BingoSquare
 {
@@ -27,7 +29,6 @@ public class BingoManager : MonoBehaviour
         // currentRoom の images 配列から image_id の最大値を取得する
         int maxImageId = 0;
         //コメントアウトの箇所はAPIから取得するときに外す
-        /*
         foreach (var image in currentRoom.images)
         {
             if (int.Parse(image.image_id) > maxImageId)
@@ -37,7 +38,7 @@ public class BingoManager : MonoBehaviour
         }
 
         Debug.Log("最大の image_id: " + maxImageId);
-        */
+        
         maxImageId = Mathf.Max(maxImageId, SQUARE_COUNT);
         List<BingoSquare> tempList = new List<BingoSquare>();
         for (int i = 1; i <= maxImageId; i++)
@@ -62,7 +63,7 @@ public class BingoManager : MonoBehaviour
 
     private void GetRoomJson(string roomId)
     {
-        /*
+        
         apiClient = gameObject.AddComponent<APIClient>();
 
         string url = $"http://localhost:7071/api/rooms/{roomId}";
@@ -73,7 +74,7 @@ public class BingoManager : MonoBehaviour
             //結構むりやりjsonの受け取り待ってる
             NewGame();
         }));
-        */
+        
         NewGame();
     }
     
@@ -92,8 +93,6 @@ public class BingoManager : MonoBehaviour
             cardAreaView.SetCardImage(i,bingoSquareList[i].number,currentRoom);
             cardAreaView.SetCardClose(i);
         }
-        OnChangeSubInfoText?.Invoke("");
-        bingoLog = true;
     }
     
     private int GetRandomNumber()
@@ -109,20 +108,59 @@ public class BingoManager : MonoBehaviour
     }
 
     // イベント発信用のアクションを追加
-    public static System.Action<int> OnBingoNumber;
+    public static System.Action<int,Sprite> OnBingoNumber;
+    private IEnumerator DownloadImage(string url, int cardIndex)
+    {
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
+        yield return www.SendWebRequest();
+
+        if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
+        {
+            Debug.LogError(www.error);
+        }
+        else
+        {
+            Texture2D texture = DownloadHandlerTexture.GetContent(www);
+            Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
+            // イベント発信
+            OnBingoNumber?.Invoke(cardIndex, sprite);
+        }
+    }
+    public static System.Action<string> OnChangeAreaName;
+    private IEnumerator GetCurrentName(string user_id)
+    {
+        string url = $"http://localhost:7071/api/users/{user_id}";
+        UnityWebRequest www = UnityWebRequest.Get(url);
+        yield return www.SendWebRequest();
+
+        if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
+        {
+            Debug.LogError(www.error);
+        }
+        else
+        {
+            User user = JsonUtility.FromJson<User>(www.downloadHandler.text);
+            OnChangeAreaName?.Invoke(user.name);
+        }
+    }
 
     public void Next()
     {
         OnChangeSubInfoText?.Invoke("");
         // まだ空いていないSquareを探す
         int number = GetRandomNumber();
-        if (number == -1)
+        foreach (var image in currentRoom.images)
         {
-            return;
+            if (int.Parse(image.image_id) == number)
+            {
+                // コルーチンで非同期にリクエストを処理
+                StartCoroutine(DownloadImage(image.url, number));
+                StartCoroutine(GetCurrentName(image.user_id));
+                
+                break;
+            }
         }
 
-        // イベント発信
-        OnBingoNumber?.Invoke(number);
 
         // 数字から何番目のSquareのIndexかを探す
         int squareIndex = bingoSquareList.FindIndex(x => x.number == number);

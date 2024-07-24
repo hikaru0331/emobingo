@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class TitleAnimation : MonoBehaviour
 {
-
+    public RectTransform TitleLogo;
     public RectTransform JoinButton;
     public RectTransform MakeButton;
     public RectTransform RoomJoinPanel;
@@ -17,7 +17,9 @@ public class TitleAnimation : MonoBehaviour
         JoinButton.DOMoveX(0, 1.5f).SetEase(Ease.OutQuint);
 
 
-        MakeButton.DOMoveX(0, 1.5f).SetEase(Ease.OutQuint); ;
+        MakeButton.DOMoveX(0, 1.5f).SetEase(Ease.OutQuint);
+
+        TitleLogo.DOMoveY(2.3f, 1f).SetEase(Ease.OutBounce);
     }
 
     public void RoomJoinAnimation()

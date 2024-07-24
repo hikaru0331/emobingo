@@ -25,15 +25,15 @@ public class BingoManager : MonoBehaviour
 
     public User currentUser;
 
-    private void GetUserJson(string user_id)
+    private IEnumerator GetUserJson(string user_id,System.Action<User> callback)
     {
         apiClient = gameObject.AddComponent<APIClient>();
 
         string url = $"http://localhost:7071/api/users/{user_id}";
 
-        StartCoroutine(apiClient.GetRequest(url, (response) => {
+        yield return StartCoroutine(apiClient.GetRequest(url, (response) => {
             User user = JsonUtility.FromJson<User>(response);
-            currentUser = user;
+            callback(user);
         }));
     }
 
@@ -55,7 +55,7 @@ public class BingoManager : MonoBehaviour
         }));
     }
 
-    private void GenerateBingoCard()
+    private IEnumerator GenerateBingoCard(System.Action onComplete = null)
     {
         bingoSquareList.Clear();
         bingoNumberBuffer.Clear();
@@ -85,12 +85,13 @@ public class BingoManager : MonoBehaviour
             {
                 if (int.Parse(image.image_id) == i)
                 {
-                    GetUserJson(image.user_id);
-                    bingoSquare.name = currentUser.name;
+                    //ここわからん
+                    yield return StartCoroutine(GetUserJson(image.user_id,(user) =>{
+                        bingoSquare.name = user.name;
+                    }));
                     break;
                 }
             }
-            
             tempList.Add(bingoSquare);
             bingoNumberBuffer.Add(i);
         }
@@ -100,6 +101,7 @@ public class BingoManager : MonoBehaviour
             bingoSquareList.Add(tempList[randomIndex]);
             tempList.RemoveAt(randomIndex);
         }
+        onComplete?.Invoke();
     }
 
 
@@ -110,16 +112,21 @@ public class BingoManager : MonoBehaviour
         GetRoomJson("20040302");
     }
 
+    private IEnumerator StartNewGame()
+    {
+        yield return StartCoroutine(GenerateBingoCard(() => {
+            for (int i = 0; i < SQUARE_COUNT; i++)
+            {
+                cardAreaView.SetCardNumber(i, bingoSquareList[i].number);
+                cardAreaView.SetCardName(i, bingoSquareList[i].name);
+                cardAreaView.SetCardImage(i, bingoSquareList[i].number, currentRoom);
+                cardAreaView.SetCardClose(i);
+            }   
+        }));
+    }
     public void NewGame()
     {
-        GenerateBingoCard();
-        for (int i = 0; i < SQUARE_COUNT; i++)
-        {
-            cardAreaView.SetCardNumber(i, bingoSquareList[i].number);
-            cardAreaView.SetCardName(i, bingoSquareList[i].name);
-            cardAreaView.SetCardImage(i,bingoSquareList[i].number,currentRoom);
-            cardAreaView.SetCardClose(i);
-        }
+        StartCoroutine(StartNewGame());
     }
     
     private int GetRandomNumber()

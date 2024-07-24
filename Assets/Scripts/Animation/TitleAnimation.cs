@@ -9,6 +9,8 @@ public class TitleAnimation : MonoBehaviour
 
     public RectTransform JoinButton;
     public RectTransform MakeButton;
+    public RectTransform RoomJoinPanel;
+    public RectTransform RoomCrePanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +20,12 @@ public class TitleAnimation : MonoBehaviour
         MakeButton.DOMoveX(0, 1.5f).SetEase(Ease.OutQuint); ;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RoomJoinAnimation()
     {
-        
+        RoomJoinPanel.DOMoveX(0, 1.5f).SetEase(Ease.OutQuint);
+    }
+    public void RoomJoinOffAnimation()
+    {
+        RoomJoinPanel.DOMoveX(3.0f, 1.5f).SetEase(Ease.OutQuint);
     }
 }

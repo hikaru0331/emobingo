@@ -2864,6 +2864,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1086480630}
+        m_TargetAssemblyTypeName: TitleAnimation, Assembly-CSharp
+        m_MethodName: RoomCreateOffAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &420063862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3229,7 +3241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &535671248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3293,7 +3305,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00024414062, y: -14}
+  m_AnchoredPosition: {x: 821, y: 0}
   m_SizeDelta: {x: -112.35, y: -300.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &542379338
@@ -7484,7 +7496,7 @@ MonoBehaviour:
   JoinButton: {fileID: 70069147}
   MakeButton: {fileID: 2038015359}
   RoomJoinPanel: {fileID: 582765017}
-  RoomCrePanel: {fileID: 0}
+  RoomCreatePanel: {fileID: 535671250}
 --- !u!4 &1086480631
 Transform:
   m_ObjectHideFlags: 0
@@ -12735,6 +12747,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1692579943}
         m_TargetAssemblyTypeName: PanelChange, Assembly-CSharp
         m_MethodName: RoomMakeView
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1086480630}
+        m_TargetAssemblyTypeName: TitleAnimation, Assembly-CSharp
+        m_MethodName: RoomCreateAnimation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

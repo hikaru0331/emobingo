@@ -109,7 +109,7 @@ public class BingoManager : MonoBehaviour
     private void Start()
     {
         //ルーム番号指定
-        GetRoomJson("20040302");
+        GetRoomJson("20240724");
     }
 
     private IEnumerator StartNewGame()

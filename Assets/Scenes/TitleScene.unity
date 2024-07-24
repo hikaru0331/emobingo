@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 26924982}
   - component: {fileID: 26924981}
   m_Layer: 5
-  m_Name: NameInputField (TMP)
+  m_Name: UserNameInputField (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1013,7 +1013,7 @@ GameObject:
   - component: {fileID: 124600004}
   - component: {fileID: 124600003}
   m_Layer: 5
-  m_Name: NumInputField (TMP)
+  m_Name: RoomIDInputField (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2822,7 +2822,7 @@ MonoBehaviour:
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
+    m_ColorMultiplier: 3.8
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -3211,13 +3211,14 @@ GameObject:
   - component: {fileID: 535671250}
   - component: {fileID: 535671249}
   - component: {fileID: 535671248}
+  - component: {fileID: 535671251}
   m_Layer: 5
   m_Name: RoomCreatePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &535671248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3271,10 +3272,10 @@ RectTransform:
   - {fileID: 1209666652}
   - {fileID: 142743349}
   - {fileID: 1544316149}
-  - {fileID: 1793787243}
   - {fileID: 124600002}
   - {fileID: 26924980}
   - {fileID: 1741698461}
+  - {fileID: 1793787243}
   - {fileID: 2002858843}
   - {fileID: 420063860}
   m_Father: {fileID: 2113665156}
@@ -3284,6 +3285,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0.00024414062, y: -14}
   m_SizeDelta: {x: -112.35, y: -300.57}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &535671251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535671247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41eb12aff64cf124e84ac3e8d0c7d68b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomIdImputField: {fileID: 124600003}
+  userNameImputField: {fileID: 26924981}
+  prizesInputField: {fileID: 1741698462}
+  createRoomButton: {fileID: 1793787244}
 --- !u!1 &542379338
 GameObject:
   m_ObjectHideFlags: 0
@@ -6700,7 +6717,7 @@ GameObject:
   - component: {fileID: 1023482851}
   - component: {fileID: 1023482850}
   m_Layer: 0
-  m_Name: script2Object
+  m_Name: TakePhotoPanelController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9669,6 +9686,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583138277}
   m_CullTransparentMesh: 1
+--- !u!1 &1595763558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1595763559}
+  - component: {fileID: 1595763560}
+  m_Layer: 0
+  m_Name: ServerConnecter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1595763559
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595763558}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1595763560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595763558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b877b666a64fff14cbfdec648ff919ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1597572203
 GameObject:
   m_ObjectHideFlags: 0
@@ -13109,3 +13170,4 @@ SceneRoots:
   - {fileID: 471585231}
   - {fileID: 2028503659}
   - {fileID: 954000502}
+  - {fileID: 1595763559}

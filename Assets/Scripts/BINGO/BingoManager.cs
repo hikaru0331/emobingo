@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class BingoSquare
 {
     public int number;
+    public string name;
     public bool isOpen;
 }
 
@@ -20,6 +21,39 @@ public class BingoManager : MonoBehaviour
     // staticなイベントを作成
     public static System.Action<string> OnChangeSubInfoText;
     private bool bingoLog = true;//ビンゴ表示用
+    private APIClient apiClient;
+
+    public User currentUser;
+
+    private void GetUserJson(string user_id)
+    {
+        apiClient = gameObject.AddComponent<APIClient>();
+
+        string url = $"http://localhost:7071/api/users/{user_id}";
+
+        StartCoroutine(apiClient.GetRequest(url, (response) => {
+            User user = JsonUtility.FromJson<User>(response);
+            currentUser = user;
+        }));
+    }
+
+    // Room データの保存先
+    public RoomDTO currentRoom;
+
+    private void GetRoomJson(string roomId)
+    {
+        
+        apiClient = gameObject.AddComponent<APIClient>();
+
+        string url = $"http://localhost:7071/api/rooms/{roomId}";
+
+        StartCoroutine(apiClient.GetRequest(url, (response) => {
+            RoomDTO room = JsonUtility.FromJson<RoomDTO>(response);
+            currentRoom = room;
+            //結構むりやりjsonの受け取り待ってる
+            NewGame();
+        }));
+    }
 
     private void GenerateBingoCard()
     {
@@ -46,6 +80,17 @@ public class BingoManager : MonoBehaviour
             BingoSquare bingoSquare = new BingoSquare();
             bingoSquare.number = i;
             bingoSquare.isOpen = false;
+            //名前追加
+            foreach (var image in currentRoom.images)
+            {
+                if (int.Parse(image.image_id) == i)
+                {
+                    GetUserJson(image.user_id);
+                    bingoSquare.name = currentUser.name;
+                    break;
+                }
+            }
+            
             tempList.Add(bingoSquare);
             bingoNumberBuffer.Add(i);
         }
@@ -57,26 +102,7 @@ public class BingoManager : MonoBehaviour
         }
     }
 
-    private APIClient apiClient;
-    // Room データの保存先
-    public RoomDTO currentRoom;
 
-    private void GetRoomJson(string roomId)
-    {
-        
-        apiClient = gameObject.AddComponent<APIClient>();
-
-        string url = $"http://localhost:7071/api/rooms/{roomId}";
-
-        StartCoroutine(apiClient.GetRequest(url, (response) => {
-            RoomDTO room = JsonUtility.FromJson<RoomDTO>(response);
-            currentRoom = room;
-            //結構むりやりjsonの受け取り待ってる
-            NewGame();
-        }));
-        
-        NewGame();
-    }
     
     private void Start()
     {
@@ -90,6 +116,7 @@ public class BingoManager : MonoBehaviour
         for (int i = 0; i < SQUARE_COUNT; i++)
         {
             cardAreaView.SetCardNumber(i, bingoSquareList[i].number);
+            cardAreaView.SetCardName(i, bingoSquareList[i].name);
             cardAreaView.SetCardImage(i,bingoSquareList[i].number,currentRoom);
             cardAreaView.SetCardClose(i);
         }

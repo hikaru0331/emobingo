@@ -509,6 +509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardImage: {fileID: 211834489}
   cardNumberText: {fileID: 907602056}
+  cardNameText: {fileID: 429937504}
 --- !u!114 &211834489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1671,6 +1672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardImage: {fileID: 561251976}
   cardNumberText: {fileID: 1331866090}
+  cardNameText: {fileID: 1617144320}
 --- !u!114 &561251979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2155,6 +2157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardImage: {fileID: 764600860}
   cardNumberText: {fileID: 1802961812}
+  cardNameText: {fileID: 436029510}
 --- !u!114 &764600860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2247,6 +2250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardImage: {fileID: 789118240}
   cardNumberText: {fileID: 563420353}
+  cardNameText: {fileID: 1838208593}
 --- !u!114 &789118240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2431,6 +2435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardImage: {fileID: 853446589}
   cardNumberText: {fileID: 2025576626}
+  cardNameText: {fileID: 517225994}
 --- !u!114 &853446589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3064,6 +3069,11 @@ MonoBehaviour:
     id: 
     users: []
     images: []
+  currentUser:
+    id: 
+    name: 
+    room_id: 
+    images: []
 --- !u!1 &1126074318
 GameObject:
   m_ObjectHideFlags: 0
@@ -3252,6 +3262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardImage: {fileID: 1294941410}
   cardNumberText: {fileID: 1065908089}
+  cardNameText: {fileID: 7401837}
 --- !u!114 &1294941410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3480,6 +3491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardImage: {fileID: 1354269433}
   cardNumberText: {fileID: 891081060}
+  cardNameText: {fileID: 509350570}
 --- !u!114 &1354269433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4142,6 +4154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardImage: {fileID: 1696599078}
   cardNumberText: {fileID: 1365052181}
+  cardNameText: {fileID: 986026024}
 --- !u!114 &1696599078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4504,6 +4517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardImage: {fileID: 1761029141}
   cardNumberText: {fileID: 2085400161}
+  cardNameText: {fileID: 2076323709}
 --- !u!114 &1761029141
 MonoBehaviour:
   m_ObjectHideFlags: 0

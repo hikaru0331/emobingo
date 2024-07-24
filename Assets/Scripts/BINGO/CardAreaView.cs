@@ -16,6 +16,11 @@ public class CardAreaView : MonoBehaviour
         cardViews[cardIndex].SetCardNumber(cardNumber);
     }
 
+    public void SetCardName(int cardIndex, string cardName)
+    {
+        cardViews[cardIndex].SetCardName(cardName);
+    }
+
     public void SetCardImage(int cardIndex, int cardNumber, RoomDTO currentRoom)
     {
         //cardNumberがroomのimage_id

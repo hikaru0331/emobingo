@@ -12,6 +12,8 @@ public class RoomCreate : MonoBehaviourPunCallbacks
 
     [SerializeField] private Button createRoomButton = default;
 
+    [SerializeField] private GameObject ThemePanel;
+
     //private CanvasGroup canvasGroup;
 
     private void Start()
@@ -24,7 +26,7 @@ public class RoomCreate : MonoBehaviourPunCallbacks
         userNameImputField.onValueChanged.AddListener(OnInputFieldsValueChanged);
         prizesInputField.onValueChanged.AddListener(OnInputFieldsValueChanged);
 
-        createRoomButton.onClick.AddListener(OnJoinRoomButtonClick);
+        createRoomButton.onClick.AddListener(OnConfirmButtonClicked);
     }
 
     private void OnInputFieldsValueChanged(string value)
@@ -41,30 +43,34 @@ public class RoomCreate : MonoBehaviourPunCallbacks
         }
     }
 
-    private void OnJoinRoomButtonClick()
+    private void OnConfirmButtonClicked()
     {
         // ルーム参加処理中は、入力できないようにする
         createRoomButton.interactable = false;
 
-        // ルームを非公開に設定する（新規でルームを作成する場合）
-        var roomOptions = new RoomOptions();
-        roomOptions.MaxPlayers = 2;
-        roomOptions.IsVisible = false;
+        // プレイヤーのカスタムプロパティにユーザー名を設定
+        PhotonNetwork.LocalPlayer.SetUserName(userNameImputField.text);
 
-        // ルーム番号と同じ名前のルームに参加する（ルームが存在しなければ作成してから参加する）
-        PhotonNetwork.CreateRoom(roomIdImputField.text, roomOptions, TypedLobby.Default);
+        // ルーム番号と同じ名前のルームを作成する
+        PhotonNetwork.CreateRoom(roomIdImputField.text);
     }
 
-    public override void OnJoinedRoom()
+    public override void OnCreatedRoom()
     {
-        // ルームへの参加が成功したら、UIを非表示にする
+        // ルームのカスタムプロパティに景品の最大数を設定
+        PhotonNetwork.CurrentRoom.SetPrizesMaximun(int.Parse(prizesInputField.text));
+        Debug.Log(int.Parse(prizesInputField.text));
+        Debug.Log(PhotonNetwork.CurrentRoom.GetPrizesMaximun());
+
+        // ルームへの参加が成功したら、次のパネルを表示する
         gameObject.SetActive(false);
+        ThemePanel.SetActive(true);
     }
 
-    public override void OnJoinRoomFailed(short returnCode, string message)
+    public override void OnCreateRoomFailed(short returnCode, string message)
     {
         // ルームへの参加が失敗したら、パスワードを再び入力できるようにする
         roomIdImputField.text = string.Empty;
-        // canvasGroup.interactable = true;
+        Debug.Log($"ルームへの参加に失敗しました: {message}");
     }
 }

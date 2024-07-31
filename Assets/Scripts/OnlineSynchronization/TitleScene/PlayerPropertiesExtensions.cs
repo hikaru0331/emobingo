@@ -1,26 +1,21 @@
 using ExitGames.Client.Photon;
 using Photon.Realtime;
 
-    public static class RoomPropertiesExtensions
+public static class PlayerPropertiesExtensions
+{
+    private const string UserNameKey = "UserName";
+
+    private static readonly Hashtable propsToSet = new Hashtable();
+
+    public static void SetUserName(this Player player, string userName)
     {
-        private const string PrizesKey = "Prizes";
-
-        public static void SetPrizesMaximun(this Hashtable hashtable, int prizes)
-        {
-            hashtable["Prizes"] = prizes;
-        }
-        
-        // private const string RankKey = "Rank";
-
-        // // Hashtableにプレイヤーのランクを設定する
-        // public static void SetPlayerRank(this Hashtable hashtable, Player player)
-        // {
-        //     hashtable[RankKey] = player.GetRank();
-        // }
-
-        // // ロビーから取得できるカスタムプロパティのキーの配列を返す
-        // public static string[] KeysForLobby(this Hashtable hashtable)
-        // {
-        //     return new[] { RankKey };
-        // }
+        propsToSet[UserNameKey] = userName;
+        player.SetCustomProperties(propsToSet);
+        propsToSet.Clear();
     }
+
+    public static string GetUserName(this Player player)
+    {
+        return (player.CustomProperties[UserNameKey] is string userName) ? userName : string.Empty;
+    }
+}

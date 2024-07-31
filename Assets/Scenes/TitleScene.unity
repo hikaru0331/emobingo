@@ -3301,6 +3301,7 @@ MonoBehaviour:
   userNameImputField: {fileID: 26924981}
   prizesInputField: {fileID: 1741698462}
   createRoomButton: {fileID: 1793787244}
+  ThemePanel: {fileID: 40509630}
 --- !u!1 &542379338
 GameObject:
   m_ObjectHideFlags: 0

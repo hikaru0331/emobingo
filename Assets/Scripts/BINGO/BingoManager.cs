@@ -126,6 +126,7 @@ public class BingoManager : MonoBehaviour
     }
     public void NewGame()
     {
+        OnChangeSubInfoText?.Invoke("");
         StartCoroutine(StartNewGame());
     }
     
@@ -216,6 +217,7 @@ public class BingoManager : MonoBehaviour
             // ちなみにTextMeshProの関係で、日本語は使えないぞ！
             OnChangeSubInfoText?.Invoke("BINGO");
             Debug.Log("Bingo!(Nextメソッドのログを修正)");
+            FindObjectOfType<BingoTextAnimation>().textAnime();
             bingoLog = false;
         }
     }

@@ -44,8 +44,8 @@ public class RoomJoin : MonoBehaviourPunCallbacks
         // ルーム参加処理中は、入力できないようにする
         joinRoomButton.interactable = false;
 
-        // プレイヤーのカスタムプロパティにユーザー名を設定
-        PhotonNetwork.LocalPlayer.SetUserName(userNameImputField.text);
+        // 自身のプレイヤー名を設定
+        PhotonNetwork.LocalPlayer.NickName = userNameImputField.text;
 
         // ルーム番号と同じ名前のルームを作成する
         PhotonNetwork.JoinRoom(roomIdImputField.text);

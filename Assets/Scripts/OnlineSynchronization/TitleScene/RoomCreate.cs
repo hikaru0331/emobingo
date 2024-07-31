@@ -46,8 +46,8 @@ public class RoomCreate : MonoBehaviourPunCallbacks
         // ルーム参加処理中は、入力できないようにする
         createRoomButton.interactable = false;
 
-        // プレイヤーのカスタムプロパティにユーザー名を設定
-        PhotonNetwork.LocalPlayer.SetUserName(userNameImputField.text);
+        // 自身のプレイヤー名を設定
+        PhotonNetwork.LocalPlayer.NickName = userNameImputField.text;
 
         // ルーム番号と同じ名前のルームを作成する
         PhotonNetwork.CreateRoom(roomIdImputField.text);

@@ -6261,18 +6261,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 471585230}
-        m_TargetAssemblyTypeName: GameStartButton, Assembly-CSharp
-        m_MethodName: GameStartButtonOff
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1004640954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6738,6 +6726,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomIdDiplayer: {fileID: 1701776478}
   participantsDisplayer: {fileID: 225879981}
+  gameStartButton: {fileID: 1295303357}
 --- !u!114 &1032996158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9652,7 +9641,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomExitButton: {fileID: 1081067153}
-  waitingRoomController: {fileID: 1032996157}
 --- !u!1 &1597572203
 GameObject:
   m_ObjectHideFlags: 0
@@ -11188,18 +11176,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1692579943}
         m_TargetAssemblyTypeName: PanelChange, Assembly-CSharp
         m_MethodName: ThemeView
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 471585230}
-        m_TargetAssemblyTypeName: GameStartButton, Assembly-CSharp
-        m_MethodName: GameStartButtonOn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -53,6 +53,10 @@ public class RoomJoin : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        // ルーム待機室から退室した際に入力内容が残らないようにする
+        roomIdImputField.text = string.Empty;
+        userNameImputField.text = string.Empty;
+
         // ルームへの参加が成功したら、次のパネルを表示する
         gameObject.SetActive(false);
         ThemePanel.SetActive(true);

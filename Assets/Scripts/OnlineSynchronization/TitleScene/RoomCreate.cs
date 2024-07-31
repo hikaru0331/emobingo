@@ -62,6 +62,11 @@ public class RoomCreate : MonoBehaviourPunCallbacks
         Debug.Log(int.Parse(prizesInputField.text));
         Debug.Log(PhotonNetwork.CurrentRoom.GetPrizesMaximun());
 
+        // ルーム待機室から退室した際に入力内容が残らないようにする
+        roomIdImputField.text = string.Empty;
+        userNameImputField.text = string.Empty;
+        prizesInputField.text = string.Empty;  
+
         // ルームへの参加が成功したら、次のパネルを表示する
         gameObject.SetActive(false);
         ThemePanel.SetActive(true);

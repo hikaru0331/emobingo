@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ServerConnectionManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] private Button roomExitButton = default;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +16,8 @@ public class ServerConnectionManager : MonoBehaviourPunCallbacks
     }
 
     private void OnExitButtonClicked()
-    {
-        PhotonNetwork.LeaveRoom();
+    { 
+        PhotonNetwork.LeaveRoom();        
     }
 
     public override void OnLeftRoom()

@@ -9652,6 +9652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomExitButton: {fileID: 1081067153}
+  waitingRoomController: {fileID: 1032996157}
 --- !u!1 &1597572203
 GameObject:
   m_ObjectHideFlags: 0

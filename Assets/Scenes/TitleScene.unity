@@ -1652,8 +1652,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -175.00023, y: 430}
-  m_SizeDelta: {x: 502.16, y: 125.54}
+  m_AnchoredPosition: {x: -125.59, y: 400}
+  m_SizeDelta: {x: 251.08, y: 125.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &225879981
 MonoBehaviour:
@@ -1675,7 +1675,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u305F\u308D\u3046"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: da4d46c14e3b2474f87b876c1165c73f, type: 2}
   m_sharedMaterial: {fileID: -6190145807725455195, guid: da4d46c14e3b2474f87b876c1165c73f, type: 2}
@@ -1709,8 +1709,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 20
   m_wordSpacing: 0
@@ -6651,6 +6651,7 @@ GameObject:
   - component: {fileID: 1032996154}
   - component: {fileID: 1032996156}
   - component: {fileID: 1032996155}
+  - component: {fileID: 1032996158}
   - component: {fileID: 1032996157}
   m_Layer: 5
   m_Name: WaitingRoomPanel
@@ -6658,7 +6659,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1032996154
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6736,6 +6737,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomIdDiplayer: {fileID: 1701776478}
+  participantsDisplayer: {fileID: 225879981}
+--- !u!114 &1032996158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032996153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1034037550
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,16 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
    {
         roomIdDiplayer.text = PhotonNetwork.CurrentRoom.Name;
         
-        participantsDisplayer.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString();
+        photonView.RPC(nameof(UpdateUserList), RpcTarget.All);
    }
+   
+    [PunRPC]
+    public void UpdateUserList() 
+    {
+        participantsDisplayer.text = "";
+        foreach (var participants in PhotonNetwork.PlayerList) 
+        {
+            participantsDisplayer.text += participants.NickName + "\n";
+        }
+    }
 }

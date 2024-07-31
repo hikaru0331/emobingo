@@ -941,7 +941,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &117601689
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3495,7 +3495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &582765017
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6791,7 +6791,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1032996154
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9715,7 +9715,7 @@ GameObject:
   - component: {fileID: 1595763559}
   - component: {fileID: 1595763560}
   m_Layer: 0
-  m_Name: ServerConnecter
+  m_Name: ServerConnectionManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

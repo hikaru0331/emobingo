@@ -4,6 +4,9 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using TMPro;
+using System.Text;
+
 
 public class PostUser : MonoBehaviour
 {
@@ -12,7 +15,19 @@ public class PostUser : MonoBehaviour
     public RawImage Check1Image; // RawImageコンポーネントの参照
     public RawImage Check2Image; // RawImageコンポーネントの参照
     public RawImage Check3Image; // RawImageコンポーネントの参照
-    
+
+    public TextMeshProUGUI nameText;
+
+    void Start()
+    {
+        nameText = nameText.GetComponent<TextMeshProUGUI>();
+    }
+
+    void Update()
+    {
+
+    }
+
     public void OnClickEvent()
     {
         // UserManagerゲームオブジェクトを見つけてUserManagerコンポーネントを取得
@@ -57,7 +72,9 @@ public class PostUser : MonoBehaviour
         string imageBase64_smile = Convert.ToBase64String(createReadabeTexture2D(Check1Image.texture as Texture2D).EncodeToPNG());
         string imageBase64_cry = Convert.ToBase64String(createReadabeTexture2D(Check2Image.texture as Texture2D).EncodeToPNG());  
         string imageBase64_hengao = Convert.ToBase64String(createReadabeTexture2D(Check3Image.texture as Texture2D).EncodeToPNG());
-
+        
+        
+        string name = nameText.text;
         // ユーザーのデータを作成
         User newUser = new User
         {

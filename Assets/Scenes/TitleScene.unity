@@ -548,7 +548,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -90.63}
+  m_AnchoredPosition: {x: 656, y: -14}
   m_SizeDelta: {x: 455.79, y: 125.97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &70069148
@@ -598,6 +598,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1692579943}
         m_TargetAssemblyTypeName: PanelChange, Assembly-CSharp
         m_MethodName: SubView
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1086480630}
+        m_TargetAssemblyTypeName: TitleAnimation, Assembly-CSharp
+        m_MethodName: RoomJoinAnimation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2852,6 +2864,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1086480630}
+        m_TargetAssemblyTypeName: TitleAnimation, Assembly-CSharp
+        m_MethodName: RoomCreateOffAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &420063862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3282,7 +3306,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00024414062, y: -14}
+  m_AnchoredPosition: {x: 821, y: 0}
   m_SizeDelta: {x: -112.35, y: -300.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &535671251
@@ -3495,7 +3519,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &582765017
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3519,7 +3543,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1.5800781}
+  m_AnchoredPosition: {x: 821, y: 0}
   m_SizeDelta: {x: -112.35, y: -452.69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &582765018
@@ -4462,6 +4486,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1086480630}
+        m_TargetAssemblyTypeName: TitleAnimation, Assembly-CSharp
+        m_MethodName: RoomJoinOffAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &759281021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4825,7 +4861,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 4.9980702, y: 741.14014}
-  m_SizeDelta: {x: 600, y: 640}
+  m_SizeDelta: {x: 600, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &823174280
 CanvasRenderer:
@@ -5052,7 +5088,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 5.0002, y: 741.1802}
-  m_SizeDelta: {x: 600, y: 640}
+  m_SizeDelta: {x: 600, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &847500655
 MonoBehaviour:
@@ -5268,7 +5304,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.819e-12, y: 387}
+  m_AnchoredPosition: {x: 0, y: 602}
   m_SizeDelta: {x: 540.3, y: 101.31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &897384705
@@ -5638,7 +5674,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &935991578
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5935,6 +5971,7 @@ MonoBehaviour:
   Check1Image: {fileID: 1034037551}
   Check2Image: {fileID: 1739893954}
   Check3Image: {fileID: 999637440}
+  nameText: {fileID: 1604223266}
 --- !u!4 &954000502
 Transform:
   m_ObjectHideFlags: 0
@@ -6164,7 +6201,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 4.9980707, y: 741.14014}
-  m_SizeDelta: {x: 600, y: 640}
+  m_SizeDelta: {x: 600, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1004640951
 GameObject:
@@ -6819,7 +6856,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 5.0002, y: 741.1802}
-  m_SizeDelta: {x: 600, y: 640}
+  m_SizeDelta: {x: 600, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1050308833
 GameObject:
@@ -7311,6 +7348,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081067151}
   m_CullTransparentMesh: 1
+--- !u!1 &1086480629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1086480631}
+  - component: {fileID: 1086480630}
+  m_Layer: 0
+  m_Name: TitleAnimation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1086480630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086480629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8717e35ac28b54d84856f3ff794273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TitleLogo: {fileID: 897384704}
+  JoinButton: {fileID: 70069147}
+  MakeButton: {fileID: 2038015359}
+  RoomJoinPanel: {fileID: 582765017}
+  RoomCreatePanel: {fileID: 535671250}
+--- !u!4 &1086480631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086480629}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.539997, y: 0.28011867, z: 582.1431}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1165913480
 GameObject:
   m_ObjectHideFlags: 0
@@ -10335,7 +10421,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1727249143
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10466,7 +10552,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 4.9980702, y: 741.14014}
-  m_SizeDelta: {x: 600, y: 640}
+  m_SizeDelta: {x: 600, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1741698460
 GameObject:
@@ -12138,7 +12224,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 4.9980707, y: 741.14014}
-  m_SizeDelta: {x: 600, y: 640}
+  m_SizeDelta: {x: 600, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1965921738
 CanvasRenderer:
@@ -12529,7 +12615,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -348.4}
+  m_AnchoredPosition: {x: 656, y: -267.4}
   m_SizeDelta: {x: 455.79, y: 125.97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2038015360
@@ -12583,6 +12669,30 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1086480630}
+        m_TargetAssemblyTypeName: TitleAnimation, Assembly-CSharp
+        m_MethodName: RoomCreateAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: TitleAnimation, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -13070,3 +13180,5 @@ SceneRoots:
   - {fileID: 2028503659}
   - {fileID: 954000502}
   - {fileID: 1595763559}
+  - {fileID: 642835377}
+  - {fileID: 1086480631}

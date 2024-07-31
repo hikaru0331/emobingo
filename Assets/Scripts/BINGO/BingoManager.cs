@@ -1,10 +1,14 @@
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+using System.Collections;
+using System.Collections.Generic;
 
 public class BingoSquare
 {
     public int number;
+    public string name;
     public bool isOpen;
+    public string emotion;
 }
 
 public class BingoManager : MonoBehaviour
@@ -15,51 +19,31 @@ public class BingoManager : MonoBehaviour
 
     // メンバー変数を追加
     private List<int> bingoNumberBuffer = new List<int>();
+    // staticなイベントを作成
+    public static System.Action<string> OnChangeSubInfoText;
+    private bool bingoLog = true;//ビンゴ表示用
+    private APIClient apiClient;
 
-    private void GenerateBingoCard()
+    public User currentUser;
+
+    private IEnumerator GetUserJson(string user_id,System.Action<User> callback)
     {
-        bingoSquareList.Clear();
-        bingoNumberBuffer.Clear();
-        //最大値最小値決める
-        // currentRoom の images 配列から image_id の最大値を取得する
-        int maxImageId = 0;
-        //コメントアウトの箇所はAPIから取得するときに外す
-        /*
-        foreach (var image in currentRoom.images)
-        {
-            if (int.Parse(image.image_id) > maxImageId)
-            {
-                maxImageId = int.Parse(image.image_id);
-            }
-        }
+        apiClient = gameObject.AddComponent<APIClient>();
 
-        Debug.Log("最大の image_id: " + maxImageId);
-        */
-        maxImageId = Mathf.Max(maxImageId, SQUARE_COUNT);
-        List<BingoSquare> tempList = new List<BingoSquare>();
-        for (int i = 1; i <= maxImageId; i++)
-        {
-            BingoSquare bingoSquare = new BingoSquare();
-            bingoSquare.number = i;
-            bingoSquare.isOpen = false;
-            tempList.Add(bingoSquare);
-            bingoNumberBuffer.Add(i);
-        }
-        for (int i = 0; i < SQUARE_COUNT; i++)
-        {
-            int randomIndex = Random.Range(0, tempList.Count);
-            bingoSquareList.Add(tempList[randomIndex]);
-            tempList.RemoveAt(randomIndex);
-        }
+        string url = $"http://localhost:7071/api/users/{user_id}";
+
+        yield return StartCoroutine(apiClient.GetRequest(url, (response) => {
+            User user = JsonUtility.FromJson<User>(response);
+            callback(user);
+        }));
     }
 
-    private APIClient apiClient;
     // Room データの保存先
     public RoomDTO currentRoom;
 
     private void GetRoomJson(string roomId)
     {
-        /*
+        
         apiClient = gameObject.AddComponent<APIClient>();
 
         string url = $"http://localhost:7071/api/rooms/{roomId}";
@@ -70,25 +54,81 @@ public class BingoManager : MonoBehaviour
             //結構むりやりjsonの受け取り待ってる
             NewGame();
         }));
-        */
-        NewGame();
     }
+
+    private IEnumerator GenerateBingoCard(System.Action onComplete = null)
+    {
+        bingoSquareList.Clear();
+        bingoNumberBuffer.Clear();
+        //最大値最小値決める
+        // currentRoom の images 配列から image_id の最大値を取得する
+        int maxImageId = 0;
+        //コメントアウトの箇所はAPIから取得するときに外す
+        foreach (var image in currentRoom.images)
+        {
+            if (int.Parse(image.image_id) > maxImageId)
+            {
+                maxImageId = int.Parse(image.image_id);
+            }
+        }
+
+        Debug.Log("最大の image_id: " + maxImageId);
+        
+        maxImageId = Mathf.Max(maxImageId, SQUARE_COUNT);
+        List<BingoSquare> tempList = new List<BingoSquare>();
+        for (int i = 1; i <= maxImageId; i++)
+        {
+            BingoSquare bingoSquare = new BingoSquare();
+            bingoSquare.number = i;
+            bingoSquare.isOpen = false;
+            //名前追加
+            foreach (var image in currentRoom.images)
+            {
+                if (int.Parse(image.image_id) == i)
+                {
+                    bingoSquare.emotion = judge_emotion(image.emotion);
+                    //ここわからん
+                    yield return StartCoroutine(GetUserJson(image.user_id,(user) =>{
+                        bingoSquare.name = user.name;
+                    }));
+                    break;
+                }
+            }
+            tempList.Add(bingoSquare);
+            bingoNumberBuffer.Add(i);
+        }
+        for (int i = 0; i < SQUARE_COUNT; i++)
+        {
+            int randomIndex = Random.Range(0, tempList.Count);
+            bingoSquareList.Add(tempList[randomIndex]);
+            tempList.RemoveAt(randomIndex);
+        }
+        onComplete?.Invoke();
+    }
+
+
     
     private void Start()
     {
         //ルーム番号指定
-        GetRoomJson("20040302");
+        GetRoomJson("20240724");
     }
 
+    private IEnumerator StartNewGame()
+    {
+        yield return StartCoroutine(GenerateBingoCard(() => {
+            for (int i = 0; i < SQUARE_COUNT; i++)
+            {
+                cardAreaView.SetCardEmotion(i, bingoSquareList[i].emotion);
+                cardAreaView.SetCardName(i, bingoSquareList[i].name);
+                cardAreaView.SetCardImage(i, bingoSquareList[i].number, currentRoom);
+                cardAreaView.SetCardClose(i);
+            }   
+        }));
+    }
     public void NewGame()
     {
-        GenerateBingoCard();
-        for (int i = 0; i < SQUARE_COUNT; i++)
-        {
-            cardAreaView.SetCardNumber(i, bingoSquareList[i].number);
-            cardAreaView.SetCardImage(i,bingoSquareList[i].number,currentRoom);
-            cardAreaView.SetCardClose(i);
-        }
+        StartCoroutine(StartNewGame());
     }
     
     private int GetRandomNumber()
@@ -104,19 +144,75 @@ public class BingoManager : MonoBehaviour
     }
 
     // イベント発信用のアクションを追加
-    public static System.Action<int> OnBingoNumber;
-
-    public void Next()
+    public static System.Action<int,Sprite> OnBingoNumber;
+    private IEnumerator DownloadImage(string url, int cardIndex)
     {
-        // まだ空いていないSquareを探す
-        int number = GetRandomNumber();
-        if (number == -1)
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
+        yield return www.SendWebRequest();
+
+        if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
         {
-            return;
+            Debug.LogError(www.error);
+        }
+        else
+        {
+            Texture2D texture = DownloadHandlerTexture.GetContent(www);
+            Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
+            // イベント発信
+            OnBingoNumber?.Invoke(cardIndex, sprite);
+        }
+    }
+    public static System.Action<string> OnChangeAreaName;
+    public static System.Action<string> OnBingoEmotion;
+    private IEnumerator GetCurrentName(string user_id,string emotion)
+    {
+        string url = $"http://localhost:7071/api/users/{user_id}";
+        UnityWebRequest www = UnityWebRequest.Get(url);
+        yield return www.SendWebRequest();
+
+        if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
+        {
+            Debug.LogError(www.error);
+        }
+        else
+        {
+            User user = JsonUtility.FromJson<User>(www.downloadHandler.text);
+            OnChangeAreaName?.Invoke(user.name);
+
+            OnBingoEmotion?.Invoke(judge_emotion(emotion));
+        }
+    }
+    public string judge_emotion(string emotion)
+    {
+        if (emotion == "smile")
+        {
+            return "笑";
+        }else if (emotion == "angry")
+        {
+            return "怒";
+        }else{
+            return "哀";
         }
 
-        // イベント発信
-        OnBingoNumber?.Invoke(number);
+    }
+
+    
+    public void Next()
+    {
+        OnChangeSubInfoText?.Invoke("");
+        // まだ空いていないSquareを探す
+        int number = GetRandomNumber();
+        foreach (var image in currentRoom.images)
+        {
+            if (int.Parse(image.image_id) == number)
+            {
+                // コルーチンで非同期にリクエストを処理
+                StartCoroutine(DownloadImage(image.url, number));
+                StartCoroutine(GetCurrentName(image.user_id,image.emotion));
+                break;
+            }
+        }
+
 
         // 数字から何番目のSquareのIndexかを探す
         int squareIndex = bingoSquareList.FindIndex(x => x.number == number);
@@ -132,6 +228,14 @@ public class BingoManager : MonoBehaviour
         // 変数の更新
         bingoSquareList[squareIndex].isOpen = true;
         IsBingo(squareIndex);
+        if (IsBingo(squareIndex) && bingoLog)
+        {
+            // ここでSubInfo向けに変更したい文字を入力Bingo!!にしたりして見てください
+            // ちなみにTextMeshProの関係で、日本語は使えないぞ！
+            OnChangeSubInfoText?.Invoke("BINGO");
+            Debug.Log("Bingo!(Nextメソッドのログを修正)");
+            bingoLog = false;
+        }
     }
     
     public bool IsBingo(int squareIndex)

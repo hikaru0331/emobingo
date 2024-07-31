@@ -6785,8 +6785,9 @@ GameObject:
   - component: {fileID: 1032996154}
   - component: {fileID: 1032996156}
   - component: {fileID: 1032996155}
+  - component: {fileID: 1032996157}
   m_Layer: 5
-  m_Name: RoomPanel
+  m_Name: WaitingRoomPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6857,6 +6858,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032996153}
   m_CullTransparentMesh: 1
+--- !u!114 &1032996157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032996153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc447ee437874d1419d762df1dbc7c99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomIdDiplayer: {fileID: 1701776478}
 --- !u!1 &1034037550
 GameObject:
   m_ObjectHideFlags: 0
@@ -9748,6 +9762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b877b666a64fff14cbfdec648ff919ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomExitButton: {fileID: 1081067153}
 --- !u!1 &1597572203
 GameObject:
   m_ObjectHideFlags: 0
@@ -10303,7 +10318,7 @@ GameObject:
   - component: {fileID: 1701776479}
   - component: {fileID: 1701776478}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: RoomIDText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

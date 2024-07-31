@@ -59,6 +59,8 @@ public class RoomCreate : MonoBehaviourPunCallbacks
     {
         // ルームのカスタムプロパティに景品の最大数を設定
         PhotonNetwork.CurrentRoom.SetPrizesMaximun(int.Parse(prizesInputField.text));
+         
+        // 景品数のプロパティがうまく設定されてなさそう…？
         Debug.Log(int.Parse(prizesInputField.text));
         Debug.Log(PhotonNetwork.CurrentRoom.GetPrizesMaximun());
 

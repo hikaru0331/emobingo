@@ -16,7 +16,6 @@ public class TitleAnimation : MonoBehaviour
     {
         JoinButton.DOMoveX(0, 1.5f).SetEase(Ease.OutQuint);
 
-
         MakeButton.DOMoveX(0, 1.5f).SetEase(Ease.OutQuint);
 
         TitleLogo.DOMoveY(2.3f, 1f).SetEase(Ease.OutBounce);

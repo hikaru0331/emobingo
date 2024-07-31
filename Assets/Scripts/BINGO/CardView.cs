@@ -5,12 +5,12 @@ using TMPro;
 public class CardView : MonoBehaviour
 {
     [SerializeField] private UnityEngine.UI.Image cardImage;
-    [SerializeField] private TextMeshProUGUI cardNumberText;
+    [SerializeField] private TextMeshProUGUI cardEmotionText;
     [SerializeField] private TextMeshProUGUI cardNameText;
 
-    public void SetCardNumber(int cardNumber)
+    public void SetCardEmotion(string cardEmotion)
     {
-        cardNumberText.text = cardNumber.ToString();
+        cardEmotionText.text = cardEmotion;
     }
 
     public void SetCardName(string cardName)
@@ -26,6 +26,6 @@ public class CardView : MonoBehaviour
     public void SetColor(Color imageColor , Color textColor)
     {
         cardImage.color = imageColor;
-        cardNumberText.color = textColor;
+        cardEmotionText.color = textColor;
     }
 }

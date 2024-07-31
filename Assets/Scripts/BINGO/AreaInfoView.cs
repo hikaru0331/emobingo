@@ -3,11 +3,11 @@ using TMPro;
 
 public class AreaInfoView : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI currentNumberText;
+    [SerializeField] private TextMeshProUGUI currentEmotionText;
     [SerializeField] private TextMeshProUGUI currentNameText;
     [SerializeField] private UnityEngine.UI.Image currentImage;
     [SerializeField] private TextMeshProUGUI subInfoText;
-    public TextMeshProUGUI CurrentNumberText => currentNumberText;
+    public TextMeshProUGUI CurrentEmotionText => currentEmotionText;
     public TextMeshProUGUI CurrentNameText => currentNameText;
     public UnityEngine.UI.Image CurrentImage => currentImage;
     public TextMeshProUGUI SubInfoText => subInfoText;
@@ -17,7 +17,6 @@ public class AreaInfoView : MonoBehaviour
     {
         BingoManager.OnBingoNumber += (number,sprite) =>
         {
-            currentNumberText.text = number.ToString();
             currentImage.sprite = sprite;
         };
         subInfoText.text = "";
@@ -29,6 +28,11 @@ public class AreaInfoView : MonoBehaviour
         BingoManager.OnChangeAreaName +=(name)=>
         {
             currentNameText.text = name;
+        };
+        currentEmotionText.text = "";
+        BingoManager.OnBingoEmotion += (emotion) =>
+        {
+            currentEmotionText.text = emotion;
         };
     }
 }

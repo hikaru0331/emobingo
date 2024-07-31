@@ -30,7 +30,7 @@ public class BingoManager : MonoBehaviour
     {
         apiClient = gameObject.AddComponent<APIClient>();
 
-        string url = $"http://localhost:7071/api/users/{user_id}";
+        string url = $"https://die-webapi.azurewebsites.net/api/users/{user_id}";
 
         yield return StartCoroutine(apiClient.GetRequest(url, (response) => {
             User user = JsonUtility.FromJson<User>(response);
@@ -46,7 +46,7 @@ public class BingoManager : MonoBehaviour
         
         apiClient = gameObject.AddComponent<APIClient>();
 
-        string url = $"http://localhost:7071/api/rooms/{roomId}";
+        string url = $"https://die-webapi.azurewebsites.net/api/rooms/{roomId}";
 
         StartCoroutine(apiClient.GetRequest(url, (response) => {
             RoomDTO room = JsonUtility.FromJson<RoomDTO>(response);
@@ -111,7 +111,7 @@ public class BingoManager : MonoBehaviour
     private void Start()
     {
         //ルーム番号指定
-        GetRoomJson("20240724");
+        GetRoomJson("onlineroom");
     }
 
     private IEnumerator StartNewGame()
@@ -166,8 +166,10 @@ public class BingoManager : MonoBehaviour
     public static System.Action<string> OnBingoEmotion;
     private IEnumerator GetCurrentName(string user_id,string emotion)
     {
-        string url = $"http://localhost:7071/api/users/{user_id}";
+        string url = $"https://die-webapi.azurewebsites.net/api/users/{user_id}";
         UnityWebRequest www = UnityWebRequest.Get(url);
+        string function_key = MyKey.function_key;
+        www.SetRequestHeader("x-functions-key",function_key);
         yield return www.SendWebRequest();
 
         if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)

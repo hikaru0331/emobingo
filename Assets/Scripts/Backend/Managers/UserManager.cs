@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class UserManager : MonoBehaviour
 {
-    private APIClient apiClient;
-
-    private void Start()
-    {
-        apiClient = gameObject.AddComponent<APIClient>();
-    }
+    private APIClient apiClient = new APIClient();
 
     public void CreateUser(User user)
     {

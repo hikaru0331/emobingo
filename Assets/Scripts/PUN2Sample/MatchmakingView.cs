@@ -4,64 +4,67 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MatchmakingView : MonoBehaviourPunCallbacks
+namespace PUN2Sample
 {
-    [SerializeField]
-    private TMP_InputField passwordInputField = default;
-    [SerializeField]
-    private Button joinRoomButton = default;
-
-    private CanvasGroup canvasGroup;
-
-    private void Start()
+    public class MatchmakingView : MonoBehaviourPunCallbacks
     {
-        canvasGroup = GetComponent<CanvasGroup>();
-        // マスターサーバーに接続するまでは、入力できないようにする
-        canvasGroup.interactable = false;
+        [SerializeField]
+        private TMP_InputField passwordInputField = default;
+        [SerializeField]
+        private Button joinRoomButton = default;
 
-        // パスワードを入力する前は、ルーム参加ボタンを押せないようにする
-        joinRoomButton.interactable = false;
+        private CanvasGroup canvasGroup;
 
-        passwordInputField.onValueChanged.AddListener(OnPasswordInputFieldValueChanged);
-        joinRoomButton.onClick.AddListener(OnJoinRoomButtonClick);
-    }
+        private void Start()
+        {
+            canvasGroup = GetComponent<CanvasGroup>();
+            // マスターサーバーに接続するまでは、入力できないようにする
+            canvasGroup.interactable = false;
 
-    public override void OnConnectedToMaster()
-    {
-        // マスターサーバーに接続したら、入力できるようにする
-        canvasGroup.interactable = true;
-    }
+            // パスワードを入力する前は、ルーム参加ボタンを押せないようにする
+            joinRoomButton.interactable = false;
 
-    private void OnPasswordInputFieldValueChanged(string value)
-    {
-        // パスワードを6桁入力した時のみ、ルーム参加ボタンを押せるようにする
-        joinRoomButton.interactable = (value.Length == 6);
-    }
+            passwordInputField.onValueChanged.AddListener(OnPasswordInputFieldValueChanged);
+            joinRoomButton.onClick.AddListener(OnJoinRoomButtonClick);
+        }
 
-    private void OnJoinRoomButtonClick()
-    {
-        // ルーム参加処理中は、入力できないようにする
-        canvasGroup.interactable = false;
+        public override void OnConnectedToMaster()
+        {
+            // マスターサーバーに接続したら、入力できるようにする
+            canvasGroup.interactable = true;
+        }
 
-        // ルームを非公開に設定する（新規でルームを作成する場合）
-        var roomOptions = new RoomOptions();
-        roomOptions.MaxPlayers = 2;
-        roomOptions.IsVisible = false;
+        private void OnPasswordInputFieldValueChanged(string value)
+        {
+            // パスワードを6桁入力した時のみ、ルーム参加ボタンを押せるようにする
+            joinRoomButton.interactable = (value.Length == 6);
+        }
 
-        // パスワードと同じ名前のルームに参加する（ルームが存在しなければ作成してから参加する）
-        PhotonNetwork.JoinOrCreateRoom(passwordInputField.text, roomOptions, TypedLobby.Default);
-    }
+        private void OnJoinRoomButtonClick()
+        {
+            // ルーム参加処理中は、入力できないようにする
+            canvasGroup.interactable = false;
 
-    public override void OnJoinedRoom()
-    {
-        // ルームへの参加が成功したら、UIを非表示にする
-        gameObject.SetActive(false);
-    }
+            // ルームを非公開に設定する（新規でルームを作成する場合）
+            var roomOptions = new RoomOptions();
+            roomOptions.MaxPlayers = 2;
+            roomOptions.IsVisible = false;
 
-    public override void OnJoinRoomFailed(short returnCode, string message)
-    {
-        // ルームへの参加が失敗したら、パスワードを再び入力できるようにする
-        passwordInputField.text = string.Empty;
-        canvasGroup.interactable = true;
+            // パスワードと同じ名前のルームに参加する（ルームが存在しなければ作成してから参加する）
+            PhotonNetwork.JoinOrCreateRoom(passwordInputField.text, roomOptions, TypedLobby.Default);
+        }
+
+        public override void OnJoinedRoom()
+        {
+            // ルームへの参加が成功したら、UIを非表示にする
+            gameObject.SetActive(false);
+        }
+
+        public override void OnJoinRoomFailed(short returnCode, string message)
+        {
+            // ルームへの参加が失敗したら、パスワードを再び入力できるようにする
+            passwordInputField.text = string.Empty;
+            canvasGroup.interactable = true;
+        }
     }
 }

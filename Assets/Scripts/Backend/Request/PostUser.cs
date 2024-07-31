@@ -1,5 +1,6 @@
 // Assets/Scripts/Example/ExampleUserCreation.cs
 
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
@@ -27,11 +28,11 @@ public class PostUser : MonoBehaviour
 
     }
 
-
     public void OnClickEvent()
     {
         // UserManagerゲームオブジェクトを見つけてUserManagerコンポーネントを取得
-        userManager = GameObject.Find("UserManager").GetComponent<UserManager>();
+        userManager = new UserManager();
+
         // 黒魔術　意味わからん　https://qiita.com/Katumadeyaruhiko/items/c2b9b4ccdfe51df4ad4a
         Texture2D createReadabeTexture2D(Texture2D texture2d)
             {
@@ -77,9 +78,9 @@ public class PostUser : MonoBehaviour
         // ユーザーのデータを作成
         User newUser = new User
         {
-            id = "testcase6",
-            name = name,
-            room_id = "6666",
+            id = PhotonNetwork.LocalPlayer.UserId,
+            name = PhotonNetwork.LocalPlayer.NickName,
+            room_id = PhotonNetwork.CurrentRoom.Name,
 
             images = new ImageDTO[]
 

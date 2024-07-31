@@ -14,6 +14,7 @@ public class RoomImage
     public string image_id;
     public string user_id;
     public string url;
+    public string emotion;
 }
 
 [System.Serializable]

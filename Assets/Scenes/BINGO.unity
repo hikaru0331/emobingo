@@ -508,7 +508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardImage: {fileID: 211834489}
-  cardNumberText: {fileID: 907602056}
+  cardEmotionText: {fileID: 907602056}
   cardNameText: {fileID: 429937504}
 --- !u!114 &211834489
 MonoBehaviour:
@@ -697,19 +697,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '12
-
-'
+  m_text: "\u7B11"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: da4d46c14e3b2474f87b876c1165c73f, type: 2}
+  m_sharedMaterial: {fileID: -6190145807725455195, guid: da4d46c14e3b2474f87b876c1165c73f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278716425
-  m_fontColor: {r: 0.034374595, g: 0.030503958, b: 0.030503958, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1671,7 +1669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardImage: {fileID: 561251976}
-  cardNumberText: {fileID: 1331866090}
+  cardEmotionText: {fileID: 1331866090}
   cardNameText: {fileID: 1617144320}
 --- !u!114 &561251979
 MonoBehaviour:
@@ -2156,7 +2154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardImage: {fileID: 764600860}
-  cardNumberText: {fileID: 1802961812}
+  cardEmotionText: {fileID: 1802961812}
   cardNameText: {fileID: 436029510}
 --- !u!114 &764600860
 MonoBehaviour:
@@ -2249,7 +2247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardImage: {fileID: 789118240}
-  cardNumberText: {fileID: 563420353}
+  cardEmotionText: {fileID: 563420353}
   cardNameText: {fileID: 1838208593}
 --- !u!114 &789118240
 MonoBehaviour:
@@ -2434,7 +2432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardImage: {fileID: 853446589}
-  cardNumberText: {fileID: 2025576626}
+  cardEmotionText: {fileID: 2025576626}
   cardNameText: {fileID: 517225994}
 --- !u!114 &853446589
 MonoBehaviour:
@@ -3065,14 +3063,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardAreaView: {fileID: 2053340440}
-  currentRoom:
-    id: 
-    users: []
-    images: []
   currentUser:
     id: 
     name: 
     room_id: 
+    images: []
+  currentRoom:
+    id: 
+    users: []
     images: []
 --- !u!1 &1126074318
 GameObject:
@@ -3261,7 +3259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardImage: {fileID: 1294941410}
-  cardNumberText: {fileID: 1065908089}
+  cardEmotionText: {fileID: 1065908089}
   cardNameText: {fileID: 7401837}
 --- !u!114 &1294941410
 MonoBehaviour:
@@ -3490,7 +3488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardImage: {fileID: 1354269433}
-  cardNumberText: {fileID: 891081060}
+  cardEmotionText: {fileID: 891081060}
   cardNameText: {fileID: 509350570}
 --- !u!114 &1354269433
 MonoBehaviour:
@@ -3755,7 +3753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428cc2b97515eee41b405cac77988d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentNumberText: {fileID: 275197699}
+  currentEmotionText: {fileID: 275197699}
   currentNameText: {fileID: 1907084380}
   currentImage: {fileID: 2017992581}
   subInfoText: {fileID: 351313116}
@@ -4153,7 +4151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardImage: {fileID: 1696599078}
-  cardNumberText: {fileID: 1365052181}
+  cardEmotionText: {fileID: 1365052181}
   cardNameText: {fileID: 986026024}
 --- !u!114 &1696599078
 MonoBehaviour:
@@ -4516,7 +4514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardImage: {fileID: 1761029141}
-  cardNumberText: {fileID: 2085400161}
+  cardEmotionText: {fileID: 2085400161}
   cardNameText: {fileID: 2076323709}
 --- !u!114 &1761029141
 MonoBehaviour:

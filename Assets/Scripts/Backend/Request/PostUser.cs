@@ -1,5 +1,6 @@
 // Assets/Scripts/Example/ExampleUserCreation.cs
 
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
@@ -60,9 +61,9 @@ public class PostUser : MonoBehaviour
         // ユーザーのデータを作成
         User newUser = new User
         {
-            id = "12",
-            name = "Unity太郎",
-            room_id = "6666",
+            id = PhotonNetwork.LocalPlayer.UserId,
+            name = PhotonNetwork.LocalPlayer.NickName,
+            room_id = PhotonNetwork.CurrentRoom.Name,
 
             images = new ImageDTO[]
 

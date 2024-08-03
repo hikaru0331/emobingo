@@ -48,12 +48,15 @@ public class PanelChange : MonoBehaviour
         mainPanel.SetActive(false);
         roommakePanel.SetActive(true);
     }
-    public void ThemeView()
-    {
-        themePanel.SetActive(true);
-        roommakePanel.SetActive(false);
-        roominPanel.SetActive(false);
-    }
+    
+    // ルーム作成の時点でUIを非表示にしたいため、コメントアウト
+    // public void ThemeView()
+    // {
+    //     themePanel.SetActive(true);
+    //     roommakePanel.SetActive(false);
+    //     roominPanel.SetActive(false);
+    // }
+    
     public void Camera1View()
     {
         takephotoPanel1.SetActive(true);

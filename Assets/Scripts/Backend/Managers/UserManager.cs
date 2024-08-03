@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class UserManager : MonoBehaviour
 {
-    private APIClient apiClient;
-
-    private void Start()
-    {
-        apiClient = gameObject.AddComponent<APIClient>();
-    }
+    private APIClient apiClient = new APIClient();
 
     public void CreateUser(User user)
     {
-        string url = "http://localhost:7071/api/users";
+        string url = "https://die-webapi.azurewebsites.net/api/users/";
         string json = JsonUtility.ToJson(user);
 
         StartCoroutine(apiClient.PostRequest(url, json, (response) => {
@@ -23,7 +18,7 @@ public class UserManager : MonoBehaviour
 
     public void GetUser(string userId)
     {
-        string url = $"http://localhost:7071/api/users/{userId}";
+        string url = $"https://die-webapi.azurewebsites.net/api/users/{userId}";
 
         StartCoroutine(apiClient.GetRequest(url, (response) => {
             User user = JsonUtility.FromJson<User>(response);
@@ -36,7 +31,7 @@ public class UserManager : MonoBehaviour
 
     public void DeleteUser(string userId)
     {
-        string url = $"http://localhost:7071/api/users/{userId}";
+        string url = $"https://die-webapi.azurewebsites.net/api/users/{userId}";
 
         StartCoroutine(apiClient.DeleteRequest(url, (response) => {
             Debug.Log("User deleted: " + response);

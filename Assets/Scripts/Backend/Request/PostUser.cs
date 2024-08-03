@@ -1,8 +1,12 @@
 // Assets/Scripts/Example/ExampleUserCreation.cs
 
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using TMPro;
+using System.Text;
+
 
 public class PostUser : MonoBehaviour
 {
@@ -12,9 +16,11 @@ public class PostUser : MonoBehaviour
     public RawImage Check2Image; // RawImageコンポーネントの参照
     public RawImage Check3Image; // RawImageコンポーネントの参照
 
+    public TextMeshProUGUI nameText;
+
     void Start()
     {
-
+        nameText = nameText.GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
@@ -25,7 +31,8 @@ public class PostUser : MonoBehaviour
     public void OnClickEvent()
     {
         // UserManagerゲームオブジェクトを見つけてUserManagerコンポーネントを取得
-        userManager = GameObject.Find("UserManager").GetComponent<UserManager>();
+        userManager = new UserManager();
+
         // 黒魔術　意味わからん　https://qiita.com/Katumadeyaruhiko/items/c2b9b4ccdfe51df4ad4a
         Texture2D createReadabeTexture2D(Texture2D texture2d)
             {
@@ -65,13 +72,15 @@ public class PostUser : MonoBehaviour
         string imageBase64_smile = Convert.ToBase64String(createReadabeTexture2D(Check1Image.texture as Texture2D).EncodeToPNG());
         string imageBase64_cry = Convert.ToBase64String(createReadabeTexture2D(Check2Image.texture as Texture2D).EncodeToPNG());  
         string imageBase64_hengao = Convert.ToBase64String(createReadabeTexture2D(Check3Image.texture as Texture2D).EncodeToPNG());
-
+        
+        
+        string name = nameText.text;
         // ユーザーのデータを作成
         User newUser = new User
         {
-            id = "12",
-            name = "Unity太郎",
-            room_id = "6666",
+            id = PhotonNetwork.LocalPlayer.UserId,
+            name = PhotonNetwork.LocalPlayer.NickName,
+            room_id = PhotonNetwork.CurrentRoom.Name,
 
             images = new ImageDTO[]
 

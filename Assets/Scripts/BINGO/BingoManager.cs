@@ -8,6 +8,7 @@ public class BingoSquare
     public int number;
     public string name;
     public bool isOpen;
+    public string emotion;
 }
 
 public class BingoManager : MonoBehaviour
@@ -29,7 +30,7 @@ public class BingoManager : MonoBehaviour
     {
         apiClient = gameObject.AddComponent<APIClient>();
 
-        string url = $"http://localhost:7071/api/users/{user_id}";
+        string url = $"https://die-webapi.azurewebsites.net/api/users/{user_id}";
 
         yield return StartCoroutine(apiClient.GetRequest(url, (response) => {
             User user = JsonUtility.FromJson<User>(response);
@@ -45,7 +46,7 @@ public class BingoManager : MonoBehaviour
         
         apiClient = gameObject.AddComponent<APIClient>();
 
-        string url = $"http://localhost:7071/api/rooms/{roomId}";
+        string url = $"https://die-webapi.azurewebsites.net/api/rooms/{roomId}";
 
         StartCoroutine(apiClient.GetRequest(url, (response) => {
             RoomDTO room = JsonUtility.FromJson<RoomDTO>(response);
@@ -85,6 +86,7 @@ public class BingoManager : MonoBehaviour
             {
                 if (int.Parse(image.image_id) == i)
                 {
+                    bingoSquare.emotion = judge_emotion(image.emotion);
                     //ここわからん
                     yield return StartCoroutine(GetUserJson(image.user_id,(user) =>{
                         bingoSquare.name = user.name;
@@ -109,7 +111,7 @@ public class BingoManager : MonoBehaviour
     private void Start()
     {
         //ルーム番号指定
-        GetRoomJson("20240724");
+        GetRoomJson("onlineroom");
     }
 
     private IEnumerator StartNewGame()
@@ -117,7 +119,7 @@ public class BingoManager : MonoBehaviour
         yield return StartCoroutine(GenerateBingoCard(() => {
             for (int i = 0; i < SQUARE_COUNT; i++)
             {
-                cardAreaView.SetCardNumber(i, bingoSquareList[i].number);
+                cardAreaView.SetCardEmotion(i, bingoSquareList[i].emotion);
                 cardAreaView.SetCardName(i, bingoSquareList[i].name);
                 cardAreaView.SetCardImage(i, bingoSquareList[i].number, currentRoom);
                 cardAreaView.SetCardClose(i);
@@ -162,10 +164,13 @@ public class BingoManager : MonoBehaviour
         }
     }
     public static System.Action<string> OnChangeAreaName;
-    private IEnumerator GetCurrentName(string user_id)
+    public static System.Action<string> OnBingoEmotion;
+    private IEnumerator GetCurrentName(string user_id,string emotion)
     {
-        string url = $"http://localhost:7071/api/users/{user_id}";
+        string url = $"https://die-webapi.azurewebsites.net/api/users/{user_id}";
         UnityWebRequest www = UnityWebRequest.Get(url);
+        string function_key = MyKey.function_key;
+        www.SetRequestHeader("x-functions-key",function_key);
         yield return www.SendWebRequest();
 
         if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
@@ -176,9 +181,25 @@ public class BingoManager : MonoBehaviour
         {
             User user = JsonUtility.FromJson<User>(www.downloadHandler.text);
             OnChangeAreaName?.Invoke(user.name);
+
+            OnBingoEmotion?.Invoke(judge_emotion(emotion));
         }
     }
+    public string judge_emotion(string emotion)
+    {
+        if (emotion == "smile")
+        {
+            return "笑";
+        }else if (emotion == "angry")
+        {
+            return "怒";
+        }else{
+            return "哀";
+        }
 
+    }
+
+    
     public void Next()
     {
         OnChangeSubInfoText?.Invoke("");
@@ -190,8 +211,7 @@ public class BingoManager : MonoBehaviour
             {
                 // コルーチンで非同期にリクエストを処理
                 StartCoroutine(DownloadImage(image.url, number));
-                StartCoroutine(GetCurrentName(image.user_id));
-                
+                StartCoroutine(GetCurrentName(image.user_id,image.emotion));
                 break;
             }
         }

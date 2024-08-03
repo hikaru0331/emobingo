@@ -73,3 +73,5 @@ crashlytics-build.properties
 
 #VSCodeの設定に関するディレクトリ
 .vscode/
+key.cs
+key.cs.meta

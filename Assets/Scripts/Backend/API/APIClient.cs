@@ -14,6 +14,9 @@ public class APIClient : MonoBehaviour
         {
             webRequest.uploadHandler = new UploadHandlerRaw(bodyRaw);
             webRequest.downloadHandler = new DownloadHandlerBuffer();
+            
+            string function_key = MyKey.function_key;
+            webRequest.SetRequestHeader("x-functions-key",function_key);
             webRequest.SetRequestHeader("Content-Type", "application/json");
 
             yield return webRequest.SendWebRequest();
@@ -33,6 +36,8 @@ public class APIClient : MonoBehaviour
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Get(url))
         {
+            string function_key = MyKey.function_key;
+            webRequest.SetRequestHeader("x-functions-key",function_key);
             yield return webRequest.SendWebRequest();
 
             if (webRequest.result == UnityWebRequest.Result.ConnectionError || webRequest.result == UnityWebRequest.Result.ProtocolError)
@@ -50,6 +55,8 @@ public class APIClient : MonoBehaviour
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Delete(url))
         {
+            string function_key = MyKey.function_key;
+            webRequest.SetRequestHeader("x-functions-key",function_key);
             yield return webRequest.SendWebRequest();
 
             if (webRequest.result == UnityWebRequest.Result.ConnectionError || webRequest.result == UnityWebRequest.Result.ProtocolError)

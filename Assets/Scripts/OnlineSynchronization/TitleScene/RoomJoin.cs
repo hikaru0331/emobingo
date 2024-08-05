@@ -47,6 +47,9 @@ public class RoomJoin : MonoBehaviourPunCallbacks
         // 自身のプレイヤー名を設定
         PhotonNetwork.LocalPlayer.NickName = userNameImputField.text;
 
+        // シーンの自動同期を有効にする
+        PhotonNetwork.AutomaticallySyncScene = true;
+
         // ルーム番号と同じ名前のルームを作成する
         PhotonNetwork.JoinRoom(roomIdImputField.text);
     }

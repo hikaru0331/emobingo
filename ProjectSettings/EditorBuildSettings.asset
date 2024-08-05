@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TitleScene.unity
     guid: 1d57af535878b984ab44f79d66c6cf6c
+  - enabled: 1
+    path: Assets/Scenes/BINGO.unity
+    guid: 322af8e5e769de7bf976a52c3f376a84
   m_configObjects: {}

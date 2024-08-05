@@ -43,6 +43,7 @@ MonoBehaviour:
   - HitBullet
   - OnPlayerEnteredRoom
   - UpdateUserList
+  - ChangePanelRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

@@ -3,13 +3,14 @@ using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.UI;
  
-public class PanelCange : MonoBehaviour
+public class PanelCange : MonoBehaviourPunCallbacks
 {
     [SerializeField] private GameObject BingoPanel;
     [SerializeField] private GameObject RandomPanel;
     [SerializeField] private Button bingoPanelNextButton = default;
     [SerializeField] private Button randomPanelNextButton = default;
 
+    //マスタークライアントのみボタンを有効化できるように
     private void Update() 
     {
         if(PhotonNetwork.IsMasterClient) 
@@ -29,16 +30,16 @@ public class PanelCange : MonoBehaviour
         BingoPanel.SetActive(true);
         RandomPanel.SetActive(false);
     }
- 
-    public void BingoPanelView()
+
+    public void CallChangePanelRPC()
     {
-        BingoPanel.SetActive(true);
-        RandomPanel.SetActive(false);
+        photonView.RPC(nameof(ChangePanelRPC), RpcTarget.All);
     }
- 
-    public void RandomPanelView()
+
+    [PunRPC]
+    public void ChangePanelRPC()
     {
-        BingoPanel.SetActive(false);
-        RandomPanel.SetActive(true);
+        BingoPanel.SetActive(!BingoPanel.activeSelf);
+        RandomPanel.SetActive(!RandomPanel.activeSelf);
     }
 }

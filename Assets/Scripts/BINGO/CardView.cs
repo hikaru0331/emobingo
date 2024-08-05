@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// マスごとのテキストや画像を管理するクラス
 public class CardView : MonoBehaviour
 {
     [SerializeField] private UnityEngine.UI.Image cardImage;

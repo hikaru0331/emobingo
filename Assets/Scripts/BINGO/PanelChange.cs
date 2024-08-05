@@ -1,28 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.UI;
  
-public class PanelCange : MonoBehaviour
+public class PanelCange : MonoBehaviourPunCallbacks
 {
-    public GameObject BingoPanel;
-    public GameObject RandomPanel;
- 
+    [SerializeField] private GameObject BingoPanel;
+    [SerializeField] private GameObject RandomPanel;
+    [SerializeField] private Button bingoPanelNextButton = default;
+    [SerializeField] private Button randomPanelNextButton = default;
+
+    //マスタークライアントのみボタンを有効化できるように
+    private void Update() 
+    {
+        if(PhotonNetwork.IsMasterClient) 
+        {
+            bingoPanelNextButton.interactable = true;
+            randomPanelNextButton.interactable = true;
+        }
+        else 
+        {
+            bingoPanelNextButton.interactable = false;
+            randomPanelNextButton.interactable = false;
+        }
+    }
+
     void Start()
     {
         BingoPanel.SetActive(true);
         RandomPanel.SetActive(false);
     }
- 
-    public void BingoPanelView()
+
+    public void CallChangePanelRPC()
     {
-        BingoPanel.SetActive(true);
-        RandomPanel.SetActive(false);
+        photonView.RPC(nameof(ChangePanelRPC), RpcTarget.All);
     }
- 
-    public void RandomPanelView()
+
+    [PunRPC]
+    public void ChangePanelRPC()
     {
-        BingoPanel.SetActive(false);
-        RandomPanel.SetActive(true);
+        BingoPanel.SetActive(!BingoPanel.activeSelf);
+        RandomPanel.SetActive(!RandomPanel.activeSelf);
     }
 }

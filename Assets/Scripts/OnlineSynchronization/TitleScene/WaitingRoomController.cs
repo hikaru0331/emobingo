@@ -28,6 +28,11 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
    {
         var token = this.GetCancellationTokenOnDestroy();
         roomIdDiplayer.text = PhotonNetwork.CurrentRoom.Name;
+
+        gameStartButton.onClick.AddListener(() => 
+        {
+            PhotonNetwork.LoadLevel("BINGO");
+        });
                 
         photonView.RPC(nameof(UpdateUserList), RpcTarget.All);
    }

@@ -268,14 +268,13 @@ GameObject:
   - component: {fileID: 83027076}
   - component: {fileID: 83027078}
   - component: {fileID: 83027077}
-  - component: {fileID: 83027079}
   m_Layer: 5
   m_Name: BingoCardPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &83027076
 RectTransform:
   m_ObjectHideFlags: 0
@@ -337,20 +336,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83027075}
   m_CullTransparentMesh: 1
---- !u!114 &83027079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83027075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65829a192ec585940a5d2ba7909fc2ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BingoPanel: {fileID: 83027075}
-  RandomPanel: {fileID: 812587744}
 --- !u!1 &145451082
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +432,6 @@ RectTransform:
   m_Children:
   - {fileID: 83027076}
   - {fileID: 812587745}
-  - {fileID: 1074914232}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -490,10 +474,10 @@ RectTransform:
   - {fileID: 429937503}
   m_Father: {fileID: 2053340436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 400, y: -509.19}
+  m_SizeDelta: {x: 225, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &211834488
 MonoBehaviour:
@@ -1529,7 +1513,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1074914233}
         m_TargetAssemblyTypeName: BingoManager, Assembly-CSharp
-        m_MethodName: NewGame
+        m_MethodName: CallNewGameRPC
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1612,10 +1596,10 @@ RectTransform:
   - {fileID: 1617144319}
   m_Father: {fileID: 2053340436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 155, y: -129.19}
+  m_SizeDelta: {x: 225, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &561251976
 MonoBehaviour:
@@ -2025,7 +2009,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1074914233}
         m_TargetAssemblyTypeName: BingoManager, Assembly-CSharp
-        m_MethodName: Next
+        m_MethodName: CallNextRPC
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2037,7 +2021,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 2106823553}
         m_TargetAssemblyTypeName: PanelCange, Assembly-CSharp
-        m_MethodName: RandomPanelView
+        m_MethodName: CallChangePanelRPC
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2120,10 +2104,10 @@ RectTransform:
   - {fileID: 436029509}
   m_Father: {fileID: 2053340436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 155, y: -889.19}
+  m_SizeDelta: {x: 225, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &764600859
 MonoBehaviour:
@@ -2213,10 +2197,10 @@ RectTransform:
   - {fileID: 1838208592}
   m_Father: {fileID: 2053340436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 645, y: -129.19}
+  m_SizeDelta: {x: 225, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &789118239
 MonoBehaviour:
@@ -2282,9 +2266,8 @@ GameObject:
   - component: {fileID: 812587745}
   - component: {fileID: 812587747}
   - component: {fileID: 812587746}
-  - component: {fileID: 812587748}
   m_Layer: 5
-  m_Name: RandamPanel
+  m_Name: RandomPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2349,20 +2332,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812587744}
   m_CullTransparentMesh: 1
---- !u!114 &812587748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 812587744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65829a192ec585940a5d2ba7909fc2ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BingoPanel: {fileID: 83027075}
-  RandomPanel: {fileID: 812587744}
 --- !u!1 &853446586
 GameObject:
   m_ObjectHideFlags: 0
@@ -2398,10 +2367,10 @@ RectTransform:
   - {fileID: 517225993}
   m_Father: {fileID: 2053340436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 645, y: -889.19}
+  m_SizeDelta: {x: 225, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &853446588
 MonoBehaviour:
@@ -3007,6 +2976,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1074914232}
+  - component: {fileID: 1074914234}
   - component: {fileID: 1074914233}
   m_Layer: 5
   m_Name: BingoManager
@@ -3022,12 +2992,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1074914231}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.005777538, y: 0.005777538, z: 0.005777538}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 145451086}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3056,6 +3026,28 @@ MonoBehaviour:
     id: 
     users: []
     images: []
+--- !u!114 &1074914234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074914231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 2
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1115607466
 GameObject:
   m_ObjectHideFlags: 0
@@ -3067,7 +3059,7 @@ GameObject:
   - component: {fileID: 1115607468}
   - component: {fileID: 1115607467}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: BingoAnimator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3270,10 +3262,10 @@ RectTransform:
   - {fileID: 7401836}
   m_Father: {fileID: 2053340436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 400, y: -889.19}
+  m_SizeDelta: {x: 225, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1294941409
 MonoBehaviour:
@@ -3499,10 +3491,10 @@ RectTransform:
   - {fileID: 509350569}
   m_Father: {fileID: 2053340436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 155, y: -509.19}
+  m_SizeDelta: {x: 225, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1354269432
 MonoBehaviour:
@@ -4162,10 +4154,10 @@ RectTransform:
   - {fileID: 986026023}
   m_Father: {fileID: 2053340436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 645, y: -509.19}
+  m_SizeDelta: {x: 225, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1696599077
 MonoBehaviour:
@@ -4525,10 +4517,10 @@ RectTransform:
   - {fileID: 2076323708}
   m_Father: {fileID: 2053340436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 400, y: -129.19}
+  m_SizeDelta: {x: 225, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1761029140
 MonoBehaviour:
@@ -4668,7 +4660,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2106823553}
         m_TargetAssemblyTypeName: PanelCange, Assembly-CSharp
-        m_MethodName: BingoPanelView
+        m_MethodName: CallChangePanelRPC
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5748,6 +5740,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2106823552}
+  - component: {fileID: 2106823554}
   - component: {fileID: 2106823553}
   m_Layer: 0
   m_Name: ChangePanel
@@ -5785,6 +5778,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BingoPanel: {fileID: 83027075}
   RandomPanel: {fileID: 812587744}
+  bingoPanelNextButton: {fileID: 729674975}
+  randomPanelNextButton: {fileID: 1783437779}
+--- !u!114 &2106823554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106823551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &2125923403
 GameObject:
   m_ObjectHideFlags: 0
@@ -5862,3 +5879,4 @@ SceneRoots:
   - {fileID: 2125923406}
   - {fileID: 2106823552}
   - {fileID: 1115607468}
+  - {fileID: 1074914232}

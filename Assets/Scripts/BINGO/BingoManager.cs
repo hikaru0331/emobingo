@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 
 public class BingoSquare
 {
@@ -11,7 +12,7 @@ public class BingoSquare
     public string emotion;
 }
 
-public class BingoManager : MonoBehaviour
+public class BingoManager : MonoBehaviourPunCallbacks
 {
     public const int SQUARE_COUNT = 9;
     private List<BingoSquare> bingoSquareList = new List<BingoSquare>();
@@ -26,16 +27,10 @@ public class BingoManager : MonoBehaviour
 
     public User currentUser;
 
-    private IEnumerator GetUserJson(string user_id,System.Action<User> callback)
+    private void Start()
     {
-        apiClient = gameObject.AddComponent<APIClient>();
-
-        string url = $"https://die-webapi.azurewebsites.net/api/users/{user_id}";
-
-        yield return StartCoroutine(apiClient.GetRequest(url, (response) => {
-            User user = JsonUtility.FromJson<User>(response);
-            callback(user);
-        }));
+        //ルーム番号指定
+        GetRoomJson("onlineroom");
     }
 
     // Room データの保存先
@@ -53,6 +48,18 @@ public class BingoManager : MonoBehaviour
             currentRoom = room;
             //結構むりやりjsonの受け取り待ってる
             NewGame();
+        }));
+    }
+
+    private IEnumerator GetUserJson(string user_id,System.Action<User> callback)
+    {
+        apiClient = gameObject.AddComponent<APIClient>();
+
+        string url = $"https://die-webapi.azurewebsites.net/api/users/{user_id}";
+
+        yield return StartCoroutine(apiClient.GetRequest(url, (response) => {
+            User user = JsonUtility.FromJson<User>(response);
+            callback(user);
         }));
     }
 
@@ -106,14 +113,6 @@ public class BingoManager : MonoBehaviour
         onComplete?.Invoke();
     }
 
-
-    
-    private void Start()
-    {
-        //ルーム番号指定
-        GetRoomJson("onlineroom");
-    }
-
     private IEnumerator StartNewGame()
     {
         yield return StartCoroutine(GenerateBingoCard(() => {
@@ -126,7 +125,15 @@ public class BingoManager : MonoBehaviour
             }   
         }));
     }
-    public void NewGame()
+
+    // NewGameメソッドをRPCで呼び出すためのメソッド。BingoCardPanel > areaButton > newGameButtonで呼び出す
+    public void CallNewGameRPC()
+    {
+        photonView.RPC(nameof(NewGame), RpcTarget.All);
+    }
+
+    [PunRPC]
+    private void NewGame()
     {
         OnChangeSubInfoText?.Invoke("");
         StartCoroutine(StartNewGame());
@@ -199,8 +206,14 @@ public class BingoManager : MonoBehaviour
 
     }
 
-    
-    public void Next()
+    // NewGameメソッドをRPCで呼び出すためのメソッド。BingoCardPanel > areaButton > nextButtonで呼び出す
+    public void CallNextRPC()
+    {
+        photonView.RPC(nameof(Next), RpcTarget.All);
+    }
+
+    [PunRPC]
+    private void Next()
     {
         OnChangeSubInfoText?.Invoke("");
         // まだ空いていないSquareを探す

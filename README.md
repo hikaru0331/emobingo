@@ -8,7 +8,6 @@
   <!-- フロントエンド一覧 -->
   <img src="https://img.shields.io/badge/-Unity-000000.svg?logo=unity&style=plastic">
   <!-- バックエンドのフレームワーク一覧 -->
-
   <!-- バックエンドの言語一覧 -->
 　<img src="https://img.shields.io/badge/-Python-3776AB.svg?logo=python&style=plastic">
   <!-- ミドルウェア一覧 -->
@@ -25,6 +24,7 @@
 2. [環境](#環境)
 3. [ディレクトリ構成](#ディレクトリ構成)
 4. [開発環境構築](#開発環境構築)
+5. [ライセンス](#ライセンス)
 
 
 <!-- プロジェクト名を記載 -->
@@ -41,8 +41,8 @@
 確定新入生歓迎会に焦点を当て、参加者同士の名前と顔、パーソナリティの共有を促進させます。
 ### 実行環境
 3~20人での使用を想定しています。
-Webブラウザで動作する2DゲームでUnityroomで公開予定ですが、まだできていません。
-ローカル実行した対応していない現状です。
+Webブラウザで動作する2DゲームでUnityroomで公開していますが、スマホでの動作に対応できていません。
+ローカル実行のみに対応しています。
 フロントはUnity
 バックエンドはPython
 
@@ -190,13 +190,26 @@ Assets
 ## 開発環境構築
 
 <!-- コンテナの作成方法、パッケージのインストール方法など、開発環境構築に必要な情報を記載 -->
-
 ### key.csの配置
 Azure Functionsのエンドポイントへの認証keyが記述されたkey.csをAssets以下のどこかに配置する。
 
-
 ### 動作確認
+1. git clone git@github.com:hikaru0331/emobingo.git
+2. Unityでプロジェクトを開く
+3. Title Sceneに移動し実行
 
-Unityをローカルで実行
+### ライセンス
+#### フォント
+このプロジェクトでは以下のフォントを使用しています：
+
+フォント名：M PLUS 1p
+デザイナー：森下浩司
+配布元：Google Fonts (https://fonts.google.com/specimen/M+PLUS+1p)
+ライセンス：SIL Open Font License, Version 1.1
+
+ライセンスの全文は以下のURLで確認できます：
+https://scripts.sil.org/OFL
+
+M PLUS 1p は SIL Open Font License の下で配布されており、このプロジェクトでの使用が許可されています。
 
 <p align="right">(<a href="#top">トップへ</a>)</p>

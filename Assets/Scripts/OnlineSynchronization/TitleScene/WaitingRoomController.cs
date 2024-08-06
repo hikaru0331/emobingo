@@ -64,6 +64,9 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
         //　ルームの情報をバックエンドにポストする
         PostRoom postRoom = new PostRoom{room_id = PhotonNetwork.CurrentRoom.Name};
         roomManager.CreateRoom(postRoom);
+
+        //　画像ポストを待つためにここで1秒待つ
+        //await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
         
         PhotonNetwork.LoadLevel("BINGO");
     }

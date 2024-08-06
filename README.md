@@ -194,9 +194,9 @@ Assets
 Azure Functionsのエンドポイントへの認証keyが記述されたkey.csをAssets以下のどこかに配置する。
 
 ### 動作確認
-1. git clone git@github.com:hikaru0331/emobingo.git
-2. Unityでプロジェクトを開く
-3. Title Sceneに移動し実行
+1. git clone git@github.com:hikaru0331/emobingo.git する
+2. プロジェクトをビルドする
+3. ビルドしたフォルダのemobingo.exeを実行する
 
 ### ライセンス
 #### フォント

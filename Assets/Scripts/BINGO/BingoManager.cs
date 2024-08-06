@@ -30,7 +30,7 @@ public class BingoManager : MonoBehaviourPunCallbacks
     private void Start()
     {
         //ルーム番号指定
-        GetRoomJson("onlineroom");
+        GetRoomJson(PhotonNetwork.CurrentRoom.Name);
     }
 
     // Room データの保存先
@@ -209,15 +209,17 @@ public class BingoManager : MonoBehaviourPunCallbacks
     // NewGameメソッドをRPCで呼び出すためのメソッド。BingoCardPanel > areaButton > nextButtonで呼び出す
     public void CallNextRPC()
     {
-        photonView.RPC(nameof(Next), RpcTarget.All);
-    }
-
-    [PunRPC]
-    private void Next()
-    {
         OnChangeSubInfoText?.Invoke("");
         // まだ空いていないSquareを探す
         int number = GetRandomNumber();
+
+        photonView.RPC(nameof(Next), RpcTarget.All, number);
+    }
+
+    [PunRPC]
+    private void Next(int number)
+    {
+        // ここで数字から画像と名前、感情の情報を取得して表示する
         foreach (var image in currentRoom.images)
         {
             if (int.Parse(image.image_id) == number)
@@ -228,7 +230,6 @@ public class BingoManager : MonoBehaviourPunCallbacks
                 break;
             }
         }
-
 
         // 数字から何番目のSquareのIndexかを探す
         int squareIndex = bingoSquareList.FindIndex(x => x.number == number);

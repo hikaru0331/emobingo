@@ -11,6 +11,7 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
    [SerializeField] private TextMeshProUGUI roomIdDiplayer = default;
    [SerializeField] private TextMeshProUGUI participantsDisplayer = default;
    [SerializeField] private Button gameStartButton = default;
+   [SerializeField] private RoomManager roomManager = default;
 
     private void Update() 
     {
@@ -29,10 +30,7 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
         var token = this.GetCancellationTokenOnDestroy();
         roomIdDiplayer.text = PhotonNetwork.CurrentRoom.Name;
 
-        gameStartButton.onClick.AddListener(() => 
-        {
-            PhotonNetwork.LoadLevel("BINGO");
-        });
+        gameStartButton.onClick.AddListener(StartGame);
                 
         photonView.RPC(nameof(UpdateUserList), RpcTarget.All);
    }
@@ -59,5 +57,14 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
         {
             participantsDisplayer.text += participants.NickName + "\n";
         }
+    }
+
+    private void StartGame() 
+    {       
+        //　ルームの情報をバックエンドにポストする
+        PostRoom postRoom = new PostRoom{room_id = PhotonNetwork.CurrentRoom.Name};
+        roomManager.CreateRoom(postRoom);
+        
+        PhotonNetwork.LoadLevel("BINGO");
     }
 }

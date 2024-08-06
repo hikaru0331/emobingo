@@ -10,7 +10,8 @@ using System.Text;
 
 public class PostUser : MonoBehaviour
 {
-    private UserManager userManager;
+    //UserManagerオブジェクトをアタッチする変数
+    [SerializeField] private UserManager userManager;
 
     public RawImage Check1Image; // RawImageコンポーネントの参照
     public RawImage Check2Image; // RawImageコンポーネントの参照
@@ -23,16 +24,8 @@ public class PostUser : MonoBehaviour
         nameText = nameText.GetComponent<TextMeshProUGUI>();
     }
 
-    void Update()
-    {
-
-    }
-
     public void OnClickEvent()
     {
-        // UserManagerゲームオブジェクトを見つけてUserManagerコンポーネントを取得
-        userManager = new UserManager();
-
         // 黒魔術　意味わからん　https://qiita.com/Katumadeyaruhiko/items/c2b9b4ccdfe51df4ad4a
         Texture2D createReadabeTexture2D(Texture2D texture2d)
             {

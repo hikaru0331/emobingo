@@ -81,7 +81,7 @@ public class PostUser : MonoBehaviour
                 new ImageDTO
                 {
                     image_base64 = imageBase64_smile,
-                    emotion = "smlie"
+                    emotion = "smile"
                 },
                 new ImageDTO
                 {

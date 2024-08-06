@@ -197,13 +197,19 @@ public class BingoManager : MonoBehaviourPunCallbacks
         if (emotion == "smile")
         {
             return "笑";
-        }else if (emotion == "angry")
+        }
+        else if (emotion == "angry")
         {
             return "怒";
-        }else{
+        }
+        else if (emotion == "cry")
+        {
             return "哀";
         }
-
+        else
+        {
+            return "変";
+        }
     }
 
     // NewGameメソッドをRPCで呼び出すためのメソッド。BingoCardPanel > areaButton > nextButtonで呼び出す
